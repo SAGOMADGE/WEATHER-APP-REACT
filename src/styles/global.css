@@ -1,0 +1,99 @@
+/* === CSS RESET === */
+
+/* global.css место для общего сброса браузеровских настроек, для прописания css токенов, и для базовых настроек элементов типа кнопок, ссылок, меню. Здесь живёт:
+reset / normalize
+design tokens (CSS variables)
+базовые дефолты HTML-элементов
+(body, button, a, ul, input — без дизайна, только поведение)
+❌ не отвечает за внешний вид
+✅ отвечает за предсказуемость*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+  color: var(--text-primary);
+  background-color: var(--color-bg);
+}
+
+/* === ROOT VARIABLES === */
+:root {
+  /* spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* font */
+  --font-base: system-ui, sans-serif;
+
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 20px;
+  --fs-xl: 24px;
+  --fs-xxl: 32px;
+
+  /* line-height*/
+  --lh-tight: 1.2;
+  --lh-base: 1.5;
+  --lh-relaxed: 1.7;
+
+  /* font weight */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* text */
+  --text-primary: #222;
+  --text-secondary: #555;
+  --text-muted: #777;
+
+  /* colors */
+  --color-bg: #ffffff; /* самый нижний слой */
+  --color-surface: #f7f7f7; /*  карточки / панели */
+  --color-border: #e5e7eb; /* разделители */
+
+  --color-primary: #2563eb; /* основной управляющий цвет */
+  --color-primary-hover: #1d4ed8;
+
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+
+  /* shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* === GLOBAL STYLES FOR ELEMENTS */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
