@@ -17,6 +17,7 @@ design tokens (CSS variables)
 }
 
 body {
+  min-height: 100vh;
   font-family: var(--font-base);
   font-size: var(--fs-md);
   line-height: var(--lh-base);
@@ -66,7 +67,7 @@ body {
   --text-muted: #777;
 
   /* colors */
-  --color-bg: #ffffff; /* самый нижний слой */
+  --color-bg: #a39999; /* самый нижний слой */
   --color-surface: #f7f7f7; /*  карточки / панели */
   --color-border: #e5e7eb; /* разделители */
 

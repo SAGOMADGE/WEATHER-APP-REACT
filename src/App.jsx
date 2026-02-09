@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import { getWeatherByCity } from "./api/api.js";
 import { translations } from "./i18n/translations.js";
-import WeatherCard from "./components/WeatherCard.jsx";
-import Search from "./components/Search.jsx";
+import WeatherCard from "./components/Weather-card/WeatherCard.jsx";
+import Search from "./components/Search/Search.jsx";
+import "./styles/App.css";
 
 const App = () => {
   // состояния
@@ -45,8 +46,8 @@ const App = () => {
 
   return (
     // jsx
-    <div>
-      <h1>Weather App</h1>
+    <div className="app">
+      <h1 className="app-header">Weather App</h1>
       <Search
         city={city}
         setCity={setCity}
