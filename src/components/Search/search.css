@@ -9,6 +9,14 @@
     background-color 300ms ease;
 }
 
+.input-buttons-area {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: none;
+}
+
 .input-buttons-area > button {
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-sm);
@@ -43,13 +51,12 @@
 
 /* Показываем ошибку только если поле потеряло фокус */
 /* Так мы избегаем «красного сразу при загрузке». */
-.input-area input:invalid:not(:focus):not(:placeholder-shown) {
+.input-area input:invalid:not(:placeholder-shown) {
   border: 1px solid red;
 }
 
-/* Можно добавить подсказку через pseudo-element */
-.input-area input:invalid:not(:focus):not(:placeholder-shown)::after {
-  content: "Некорректное значение";
-  color: red;
-  font-size: 0.75rem;
+.error-message {
+  color: var(--color-error);
+  font-size: var(--fs-sm);
+  margin-top: 4px;
 }

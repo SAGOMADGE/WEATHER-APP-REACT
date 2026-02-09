@@ -1,4 +1,4 @@
-// WeatherCard.jsx - чистый компонент отображения(глупый UI)
+// WeatherCard.jsx - чистый компонент отображения(глупый UI, красивый UI с иконками и цветами
 import { translations } from "../../i18n/translations.js";
 import "./weatherCard.css";
 

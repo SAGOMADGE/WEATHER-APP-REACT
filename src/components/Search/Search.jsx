@@ -3,10 +3,6 @@
 import { useState } from "react";
 import "./search.css";
 
-// city - это значение города, которое App держит в своем состоянии city
-// setCity - это  ссылка на род функцию , это callback, который App передает, чтобы Search мог поднять данные вверх. App.jsx передает setCity как setCity
-// внутри Search при клике кнопки вызываем setCity(inputValue) -> App получает новое значение city
-
 // Проверка валидности города
 function isValidCity(value) {
   // ^ и $ означают "начало и конец строки"
@@ -17,29 +13,42 @@ function isValidCity(value) {
 
 const Search = ({ city, setCity, lang, setLang, t }) => {
   const [inputValue, setInputValueLocal] = useState(city);
-  // локальный стейт inputValue нужен, чтобы пользователь мог печатать и видеть изменения в инпуте, не трогая App сразу
-  // Это важно, чтобы App не дергался при каждом символе, а обновлялся только когда пользователь нажмет кнопку "Поиск"
+  const [touched, setTouched] = useState(false); // состояние которое информирует, ушел ли пользователь с поля
+
+  const isValid = inputValue === "" || isValidCity(inputValue);
 
   return (
     <div className="input-area">
-      <input
-        className="input-search"
-        type="text"
-        placeholder={t.searchPlaceholder}
-        value={inputValue} // подписываем на инпут
-        required
-        onChange={(e) => setInputValueLocal(e.target.value)} // пользователь вводит город, обновляется inputValue
-      />
+      <div className="input-and-error-area">
+        <input
+          id="input-search"
+          type="text"
+          placeholder={t.searchPlaceholder}
+          value={inputValue} // подписываем на инпут
+          required
+          onChange={(e) => setInputValueLocal(e.target.value)} // пользователь вводит город, обновляется inputValue
+          onBlur={() => setTouched(true)} // пользователь ушел с поля
+          className={!isValid && touched ? "invalid" : ""} // если инпут не валидный , и фокус потерян добавляем класс "invalid"
+        />
 
+        {/* показываем ошибку только если инпут содержит хоть один символ, он не валидный и он в фокусе */}
+        {inputValue && !isValid && touched && (
+          <p className="error-message">Город не должен содержать цифры</p>
+        )}
+      </div>
       <div className="input-buttons-area">
-        <button onClick={() => setCity(inputValue)}>{t.searchButton}</button>{" "}
+        <button
+          onClick={() => {
+            setTouched(true);
+            if (isValid) setCity(inputValue);
+          }}
+        >
+          {t.searchButton}
+        </button>{" "}
         <button onClick={() => setLang(lang === "ru" ? "en" : "ru")}>
           {lang.toUpperCase()}
         </button>
       </div>
-
-      {/* пользователь жмет на "Поиск", вызов setCity(value) изменяет state в App. вызывается родитель, и получачет новое значение города - запускается fetch
-      То есть клик по кнопке внутри Search, использует ту же ссылку на функцию что и в App, вызов функции тут это тоже самое что прямой вызов setCity из App */}
     </div>
   );
 };
