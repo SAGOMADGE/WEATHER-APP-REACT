@@ -1,5 +1,6 @@
 // WeatherCard.jsx - чистый компонент отображения(глупый UI)
 import { translations } from "../../i18n/translations.js";
+import "./weatherCard.css";
 
 const WeatherCard = ({ weather, lang, t }) => {
   if (!weather) return null;

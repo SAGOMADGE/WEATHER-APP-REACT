@@ -1,10 +1,20 @@
 // Search.jsx - управляет вводом и отправкой
 
 import { useState } from "react";
+import "./search.css";
 
 // city - это значение города, которое App держит в своем состоянии city
 // setCity - это  ссылка на род функцию , это callback, который App передает, чтобы Search мог поднять данные вверх. App.jsx передает setCity как setCity
 // внутри Search при клике кнопки вызываем setCity(inputValue) -> App получает новое значение city
+
+// Проверка валидности города
+function isValidCity(value) {
+  // ^ и $ означают "начало и конец строки"
+  // [a-zA-Zа-яА-ЯёЁ\- ]+ — разрешены буквы, дефис и пробел, один и более символов
+  const regex = /^[a-zA-Zа-яА-ЯёЁ\- ]+$/;
+  return regex.test(value);
+}
+
 const Search = ({ city, setCity, lang, setLang, t }) => {
   const [inputValue, setInputValueLocal] = useState(city);
   // локальный стейт inputValue нужен, чтобы пользователь мог печатать и видеть изменения в инпуте, не трогая App сразу
@@ -17,8 +27,10 @@ const Search = ({ city, setCity, lang, setLang, t }) => {
         type="text"
         placeholder={t.searchPlaceholder}
         value={inputValue} // подписываем на инпут
+        required
         onChange={(e) => setInputValueLocal(e.target.value)} // пользователь вводит город, обновляется inputValue
       />
+
       <div className="input-buttons-area">
         <button onClick={() => setCity(inputValue)}>{t.searchButton}</button>{" "}
         <button onClick={() => setLang(lang === "ru" ? "en" : "ru")}>
