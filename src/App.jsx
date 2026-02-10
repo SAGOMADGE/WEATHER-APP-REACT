@@ -23,18 +23,22 @@ const App = () => {
 
   useEffect(() => {
     if (!city) return;
+
     async function loadWeather() {
-      setLoading(true); // состояние загрузки
-      setError(null); // сбрасываем ошибки(если были)
-      setWeather(null); // очищаем данные перед новым запрос на сервер
+      setLoading(true);
+      setError(null);
+      setWeather(null);
       try {
         // данные храним в переменной
-        const data = await getWeatherByCity(city); // <-- ожидаемый параметр для api функции который подставляется в URL запрос функции тут, запустится только при получении нового значения city(input обрабатывается в Search, при клике на кнопку поиск, вызывается setCity, который обновляет значение city, что триггерит следующее
-        // -> Object.is([city], [city])) (FALSE) -> RERENDER
-        setWeather(data); // обновляем стейт погоды города, триггерит перерисовку UI компонента WeatherCard
+        const { raw, mapped } = await getWeatherByCity(city);
+
+        console.log("RAW DATA:", raw);
+        console.log("MAPPED DATA:", mapped);
+
+        setWeather(mapped);
       } catch (err) {
-        // ловим ошибки
         setError(err.message);
+        console.error(err);
       } finally {
         // конечный итог(исход не важен)
         setLoading(false);

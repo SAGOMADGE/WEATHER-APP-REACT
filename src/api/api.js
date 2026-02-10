@@ -6,11 +6,25 @@ export async function getWeatherByCity(city) {
 
   if (!res.ok) throw new Error("City not found");
 
-  const data = await res.json();
+  const rawData = await res.json();
 
-  return {
-    city: data.name,
-    temp: Math.round(data.main.temp),
-    conditions: data.weather[0].main,
+  const mappedData = {
+    city: rawData.name,
+    county: rawData.sys.country,
+
+    temp: rawData.main.temp,
+    feelsLike: rawData.main.feels_like,
+    tempMin: rawData.main.temp_min,
+    tempMax: rawData.main.temp_max,
+
+    humidity: rawData.main.humidity,
+    pressure: rawData.main.pressure,
+
+    condition: rawData.weather[0].main,
+    description: rawData.weather[0].description,
+
+    windSpeed: rawData.wind.speed,
   };
+
+  return { raw: rawData, mapped: mappedData };
 }
