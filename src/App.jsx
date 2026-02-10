@@ -7,14 +7,16 @@ import WeatherCard from "./components/Weather-card/WeatherCard.jsx";
 import Search from "./components/Search/Search.jsx";
 import "./styles/App.css";
 
+// состояния
+// кто меняет city? → Search
+// кто читает weather? → WeatherCard
+// когда loading = true? → перед запросом
+// когда error? → если fetch упал
+
 const App = () => {
-  // состояния
-  // кто меняет city? → Search
-  // кто читает weather? → WeatherCard
-  // когда loading = true? → перед запросом
-  // когда error? → если fetch упал
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
+  const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [lang, setLang] = useState("ru");
@@ -24,23 +26,18 @@ const App = () => {
   useEffect(() => {
     if (!city) return;
 
-    async function loadWeather() {
+    const loadWeather = async () => {
       setLoading(true);
       setError(null);
-      setWeather(null);
       try {
         // данные храним в переменной
-        const {
-          uiCurWeatherData,
-          rawForecastWeeklyData,
-          uiForecastWeeklyData,
-        } = await getWeatherWithForecast(city);
+        const { uiCurWeatherData, uiForecastWeeklyData } =
+          await getWeatherWithForecast(city);
 
-        console.log("UI DATA for current weather:", uiCurWeatherData);
-        console.log("RAW DATA for forecast:", rawForecastWeeklyData);
-        console.log("UI DATA for forecast:", uiForecastWeeklyData);
-
+        // текущая погода
         setWeather(uiCurWeatherData);
+        // прогноз на неделю
+        setForecast(uiForecastWeeklyData);
       } catch (err) {
         setError(err.message);
         console.error(err);
@@ -48,42 +45,46 @@ const App = () => {
         // конечный итог(исход не важен)
         setLoading(false);
       }
-    }
+    };
 
     loadWeather(); // запускаем функцию
   }, [city]); // инструкция "реакту" для слежки изменений (dependencies array)
 
+  {
+    loading && <p>{t.Loading}</p>;
+  }
+
+  {
+    error && <p style={{ color: "red" }}>{t.error}</p>;
+  }
+
   return (
     // jsx
     <div className="app">
-      <h1 className="app-header">Weather App</h1>
-      <Search
-        city={city}
-        setCity={setCity}
-        lang={lang}
-        setLang={setLang}
-        t={t}
-      />
-      {/* 
-        city={city} -> передаем текущее значение города в Search
+      {/* Header */}
+      {weather && <Header city={weather.city} country={weather.country} />}
 
-        onCityChange={setCity} -> передаем функцию которая обновляет состояние App.
-        Когда Search вызывает onCityChange(inputValue), на самом деле срабатывает setCity(inputValue) внутри App что триггерит вызов useEffect, что триггерит fetch запрос, что триггерит render Weather Card 
-        
-        Search не хранит результат fetch, он просто сообщает App, какой город нужно загрузить
-
-        App получает город -> useEffect срабатывает -> fetch данных -> обновление weather - ререндер
-        */}
-      {/* loading / error */}
-      {loading && <p>{t.Loading}</p>}
-      {error && <p style={{ color: "red" }}>{t.error}</p>}
-      {/* отображение погоды */}
-      {weather && !loading && !error && (
-        <div>
-          <WeatherCard weather={weather} lang={lang} t={t} />
-          {/*  */}
-        </div>
+      {/* Main Weather */}
+      {weather && (
+        <CurrentWeather
+          temp={weather.temp}
+          conditionText={weather.description}
+          feelsLike={weather.feelsLike}
+          icon={weather.condition}
+        />
       )}
+
+      {/* Addition stats*/}
+      {weather && (
+        <Stats
+          wind={weather.windSpeed}
+          pressure={weather.pressure}
+          humidity={weather.humidity}
+        />
+      )}
+
+      {/* Weekly forecast */}
+      {forecast.length > 0 && <Forecast forecast={forecast} />}
     </div>
   );
 };

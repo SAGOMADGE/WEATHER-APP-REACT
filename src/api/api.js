@@ -1,7 +1,11 @@
 const API_KEY = "b3ad058bc5daec2b9236aba02e90b21b";
 const URL_CUR_WEATHER = "https://api.openweathermap.org/data/2.5/weather";
 
+//////////////////////////////////
 // === Мапперы ==
+//////////////////////////////////
+
+// --- Маппер погоды на день
 const mapCurrentWeather = (rawCurWeatherData) => {
   const mappedCurWeatherData = {
     city: rawCurWeatherData.name,
@@ -24,7 +28,7 @@ const mapCurrentWeather = (rawCurWeatherData) => {
   return mappedCurWeatherData;
 };
 
-// forecast mapper
+// --- Маппер погоды на неделю ---
 export const mapForecastData = (rawForecast) => {
   // rawForecast.daily — объект с массивами: temperature_2m_max, temperature_2m_min, weathercode, humidity_2m_max, time
   const {
@@ -35,6 +39,10 @@ export const mapForecastData = (rawForecast) => {
     weathercode,
   } = rawForecast.daily;
 
+  /* API не вернул  «7 объектов дней».
+  Он вернул 5 массивов, которые синхронизированы по индексу, поэтому я при map использую индекс 
+  
+  👉 Один индекс = один день*/
   const forecast = time.map((date, index) => ({
     date, // "2026-02-10"
     dayTemp: temperature_2m_max[index],
@@ -46,7 +54,9 @@ export const mapForecastData = (rawForecast) => {
   return forecast;
 };
 
-// Fetch функция
+//////////////////////////////////
+// Fetch function
+//////////////////////////////////
 export async function getWeatherWithForecast(city) {
   // res погоды на день
   const resCurWeather = await fetch(
@@ -94,17 +104,23 @@ export async function getWeatherWithForecast(city) {
 
   // возвращаем ключи с ссылками на UI данные для страницы
   return {
-    // погода на день
+    // ui погода на день
     uiCurWeatherData: mappedCurWeatherData,
 
-    // raw данные погоды на неделю
-    rawForecastWeeklyData: rawForecastWeeklyData,
     // ui обработанные данные погоды на неделю
     uiForecastWeeklyData: uiForecastWeeklyData,
   };
   // uiData - это ключ который увидит App.jsx  при присвоение переменной при деструктуризации
 }
 
-// raw - контракт с API
-// mapped - контракт с UI
-// API не знает, кто что будет логировать
+/* Что происходит
+
+App.jsx управляет состоянием weather и forecast.
+
+Header получает только текстовые данные (город и страна).
+
+CurrentWeather получает температуру, описание и код иконки.
+
+Stats получает цифры: ветер, давление, влажность.
+
+Forecast получает массив дней — внутри него ты можешь делать map и рендерить каждый день через ForecastDayCard. */
