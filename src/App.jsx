@@ -1,7 +1,7 @@
 // App.sx - владеет состояниями и fetch
 
 import { useState, useEffect } from "react";
-import { getWeatherByCity } from "./api/api.js";
+import { getWeatherWithForecast } from "./api/api.js";
 import { translations } from "./i18n/translations.js";
 import WeatherCard from "./components/Weather-card/WeatherCard.jsx";
 import Search from "./components/Search/Search.jsx";
@@ -30,12 +30,17 @@ const App = () => {
       setWeather(null);
       try {
         // данные храним в переменной
-        const { raw, mapped } = await getWeatherByCity(city);
+        const {
+          uiCurWeatherData,
+          rawForecastWeeklyData,
+          uiForecastWeeklyData,
+        } = await getWeatherWithForecast(city);
 
-        console.log("RAW DATA:", raw);
-        console.log("MAPPED DATA:", mapped);
+        console.log("UI DATA for current weather:", uiCurWeatherData);
+        console.log("RAW DATA for forecast:", rawForecastWeeklyData);
+        console.log("UI DATA for forecast:", uiForecastWeeklyData);
 
-        setWeather(mapped);
+        setWeather(uiCurWeatherData);
       } catch (err) {
         setError(err.message);
         console.error(err);
