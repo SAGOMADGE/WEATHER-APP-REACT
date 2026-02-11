@@ -1,5 +1,5 @@
 const Stats = () => {
-  return <div>Stats</div>;
+  return <div>я хочу чтобы ты мне </div>;
 };
 
 export default Stats;

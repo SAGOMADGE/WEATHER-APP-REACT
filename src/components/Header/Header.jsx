@@ -10,7 +10,7 @@ import React from "react";
 import SearchBar from "./SearchBar/SearchBar.jsx";
 import Logo from "./Logo/Logo.jsx";
 import Theme from "./Theme/Theme.jsx";
-import "./HeaderBar.css";
+import "./Header.css";
 
 const HeaderBar = ({ city, setCity, lang, setLang, t }) => {
   return (

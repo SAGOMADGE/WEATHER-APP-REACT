@@ -3,7 +3,7 @@
 // Hooks import
 import { useState, useEffect } from "react";
 // Components import
-import HeaderBar from "./components/HeaderBar/HeaderBar.jsx";
+import Header from "./components/Header/Header.jsx";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
 import { translations } from "./i18n/translations.js";
 // Api import
@@ -64,7 +64,7 @@ const App = () => {
       {error && <p style={{ color: "red" }}>{t.error}</p>}
       {/* weater Header*/}
 
-      <HeaderBar
+      <Header
         city={city} // город
         setCity={setCity} // смена города
         lang={lang} // тек язык
@@ -76,9 +76,11 @@ const App = () => {
 
       {weather && (
         <CurrentWeather
+          city={weather.city}
+          country={weather.country}
           temp={weather.temp}
-          conditionText={weather.description}
           feelsLike={weather.feelsLike}
+          condition={weather.condition}
           icon={weather.condition}
         />
       )}

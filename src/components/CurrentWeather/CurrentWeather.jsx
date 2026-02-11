@@ -1,26 +1,30 @@
-// WeatherCard.jsx - чистый компонент отображения(глупый UI, красивый UI с иконками и цветами
-import { translations } from "../../i18n/translations.js";
-import "./currentWeather.css";
+import React from "react";
+import CurrentWeatherIcon from "./CurrentWeatherIcon.jsx";
+import Temperature from "./Temperature.jsx";
+import ConditionInfo from "./ConditionInfo.jsx";
 
-const WeatherCard = ({ weather, lang, t }) => {
-  if (!weather) return null;
-
-  const translatedCondition =
-    translations[lang][weather.conditions] ?? weather.conditions;
-
-  // API → возвращает КОДЫ. UI → решает, как эти коды показать. "cloudy" — это. данные"Облачно" — это представление
-
+const CurrentWeather = ({
+  city,
+  country,
+  temp,
+  feelsLike,
+  condition,
+  icon,
+}) => {
   return (
-    <div className="weather-card">
-      <h2 className="weather-card-header">{weather.city}</h2>
-      <p className="weather-card-temp">
-        {t.temperature}: {weather.temp}°C
-      </p>
-      <p className="weather-card-cond">
-        {t.conditions}: {translatedCondition}
-      </p>
+    <div className="currentWeatherContainer">
+      <div className="location">
+        <h2>{city}</h2>
+        <h2>{country}</h2>
+      </div>
+
+      <CurrentWeatherIcon icon={icon} condition={condition} />
+      <div className="WeatherInfo">
+        <Temperature temp={temp} />
+        <ConditionInfo condition={condition} feelsLike={feelsLike} />
+      </div>
     </div>
   );
 };
 
-export default WeatherCard;
+export default CurrentWeather;

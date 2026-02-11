@@ -1,5 +1,5 @@
 const Forecast = () => {
-  return <div>Forecast</div>;
+  return <div>искуссно</div>;
 };
 
 export default Forecast;
