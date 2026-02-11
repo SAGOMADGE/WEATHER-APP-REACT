@@ -1,10 +1,11 @@
 // App.sx - владеет состояниями и fetch
 
+// Hooks import
 import { useState, useEffect } from "react";
-import { getWeatherWithForecast } from "./api/api.js";
+// Components import
+import HeaderBar from "./components/HeaderBar/HeaderBar.jsx";
 import { translations } from "./i18n/translations.js";
-import WeatherCard from "./components/Weather-card/WeatherCard.jsx";
-import Search from "./components/Search/Search.jsx";
+// CSS import
 import "./styles/App.css";
 
 // состояния
@@ -62,7 +63,14 @@ const App = () => {
     // jsx
     <div className="app">
       {/* Header */}
-      {weather && <Header city={weather.city} country={weather.country} />}
+      {weather && (
+        <HeaderBar
+          city={city} // город
+          setCity // смена городаы
+          lang={lang} // тек язык
+          setLang={setLang}
+        />
+      )}
 
       {/* Main Weather */}
       {weather && (

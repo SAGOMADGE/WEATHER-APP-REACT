@@ -8,13 +8,14 @@
 вызывает функции */
 
 import Search from "./SearchBar/SearchBar.jsx";
+import Logo from "./Logo/Logo.jsx";
 import "./HeaderBar.css";
 
 const HeaderBar = ({ city, setCity, lang, setLang }) => {
   return (
     <header className="header">
-      {/* Логотипа */}
-      <div className="logo">SAGOMADGE</div>
+      {/* Логотип */}
+      <Logo />
 
       {/* Поиск + язык */}
       <SearchBar city={city} setCity={setCity} lang={lang} setLang={setLang} />
