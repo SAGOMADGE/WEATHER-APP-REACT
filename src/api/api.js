@@ -8,11 +8,11 @@ const URL_CUR_WEATHER = "https://api.openweathermap.org/data/2.5/weather";
 // --- Маппер погоды на день
 const mapCurrentWeather = (rawCurWeatherData) => {
   const temp = rawCurWeatherData.main.temp;
-  const humidity = rawCurWeatherData.main.temp;
+  const humidity = rawCurWeatherData.main.humidity;
 
   const mappedCurWeatherData = {
     city: rawCurWeatherData.name,
-    county: rawCurWeatherData.sys.country,
+    country: rawCurWeatherData.sys.country,
 
     temp,
     feelsLike: rawCurWeatherData.main.feels_like,

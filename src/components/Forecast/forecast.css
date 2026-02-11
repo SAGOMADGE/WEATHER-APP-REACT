@@ -1,0 +1,5 @@
+.forecast {
+  display: flex;
+  gap: var(--space-xl);
+  text-align: center;
+}
