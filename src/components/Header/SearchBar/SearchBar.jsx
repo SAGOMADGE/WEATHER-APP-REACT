@@ -13,7 +13,7 @@ function isValidCity(value) {
 
 const SearchBar = ({ city, setCity, lang, setLang, t }) => {
   // состояния
-  const [inputValue, setInputValueLocal] = useState(city);
+  const [inputValue, setInputValueLocal] = useState("");
   const [touched, setTouched] = useState(false); // состояние которое информирует, ушел ли пользователь с поля
 
   // синхронизация city и inputValue
@@ -58,7 +58,7 @@ const SearchBar = ({ city, setCity, lang, setLang, t }) => {
       {/* зона кнопок */}
       <div className="input-buttons-area">
         {/* кнопка поиска */}
-        <button onClick={handleSubmit}>{t.searchButton}</button>
+        <button onClick={handleSubmit}>{t.header.searchButton}</button>
         {/* кнопка смены языка */}
         <button onClick={() => setLang(lang === "ru" ? "en" : "ru")}>
           {lang.toUpperCase()}

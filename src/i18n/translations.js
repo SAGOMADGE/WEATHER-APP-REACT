@@ -1,38 +1,75 @@
 export const translations = {
   ru: {
-    title: "Прогноз погоды",
-    searchPlaceholder: "Введите город",
-    searchButton: "Поиск",
-    loading: "Загрузка...",
-    error: "Ошибка загрузки данных",
-    temperature: "Температура",
-    conditions: "Погодные условия",
-    // погодные условия
-    Clear: "Ясно",
-    Clouds: "Облачно",
-    Rain: "Дождь",
-    Snow: "Снег",
-    Drizzle: "Морось",
-    Thunderstorm: "Гроза",
-    Mist: "Туман",
+    header: {
+      searchPlaceholder: "Введите город",
+      searchButton: "Поиск",
+    },
+
+    current: {
+      feelsLike: "Ощущается как",
+      conditions: {
+        Snow: "Снег",
+        Clouds: "Облачно",
+        Rain: "Дождь",
+        Clear: "Ясно",
+        Mist: "Туман",
+        Thunderstorm: "Гроза",
+      },
+    },
+
+    stats: {
+      wind: "Ветер",
+      pressure: "Давление",
+      humidity: "Влажность",
+      visibility: "Видимость",
+      dewPoint: "Точка росы",
+    },
+
+    forecast: {
+      title: "Прогноз на неделю",
+      today: "Сегодня",
+    },
+
+    ui: {
+      loading: "Загрузка...",
+      error: "Город не найден",
+    },
   },
+
   en: {
-    title: "Weather forecast",
-    searchPlaceholder: "Enter city",
-    searchButton: "Search",
-    loading: "Loading...",
-    error: "Failed to load data",
-    temperature: "Temperature",
-    conditions: "Conditions",
-    // weather conditions
-    Clear: "Clear",
-    Clouds: "Cloudy",
-    Rain: "Rain",
-    Snow: "Snow",
-    Drizzle: "Drizzle",
-    Thunderstorm: "Thunderstorm",
-    Mist: "Mist",
+    header: {
+      searchPlaceholder: "Enter city",
+      searchButton: "Search",
+    },
+
+    current: {
+      feelsLike: "Feels like",
+      conditions: {
+        Snow: "Snow",
+        Clouds: "Cloudy",
+        Rain: "Rain",
+        Clear: "Clear",
+        Mist: "Mist",
+        Thunderstorm: "Thunderstorm",
+      },
+    },
+
+    stats: {
+      wind: "Wind",
+      pressure: "Pressure",
+      humidity: "Humidity",
+      visibility: "Visibility",
+      dewPoint: "Dew point",
+    },
+
+    forecast: {
+      title: "Weekly forecast",
+      today: "Today",
+    },
+
+    ui: {
+      loading: "Loading...",
+      error: "City not found",
+    },
   },
 };
-
-//это будущий фундамент под i18n

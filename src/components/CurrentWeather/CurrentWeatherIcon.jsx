@@ -5,7 +5,7 @@ const iconMap = {
   Snow: "❄️",
 };
 
-const WeatherIcon = ({ icon, condition }) => {
+const WeatherIcon = ({ /*icon*/ condition }) => {
   return <div style={{ fontSize: "5rem" }}>{iconMap[condition] || "❓"}</div>;
 };
 

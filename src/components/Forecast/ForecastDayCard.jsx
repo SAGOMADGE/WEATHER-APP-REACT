@@ -3,8 +3,8 @@ const ForecastDayCard = ({ day }) => {
     <div className="forecast-card">
       <p>{day.date}</p>
       <p>{day.dayTemp}°</p>
-      <p>{day.nightTemp}</p>
-      <p>{day.humidity}</p>
+      <p>{day.nightTemp}°</p>
+      <p>{day.humidity}%</p>
     </div>
   );
 };

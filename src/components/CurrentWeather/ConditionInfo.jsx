@@ -1,10 +1,15 @@
-const conditionInfo = ({ condition, feelsLike }) => {
+const ConditionInfo = ({ condition, feelsLike, t }) => {
+  console.log("RAW  condition from API:", condition);
+
   return (
     <div>
-      <div>{condition}</div>
-      <div>Feels like {Math.round(feelsLike)}°C</div>
+      <div>{t.current.conditions[condition] || condition}</div>
+      <div>
+        {t.current.feelsLike}
+        {Math.round(feelsLike)}°C
+      </div>
     </div>
   );
 };
 
-export default conditionInfo;
+export default ConditionInfo;

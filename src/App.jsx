@@ -2,6 +2,7 @@
 
 // Hooks import
 import { useState, useEffect } from "react";
+
 // Components import
 import Header from "./components/Header/Header.jsx";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
@@ -62,10 +63,10 @@ const App = () => {
       {/* Header */}
       {loading && <p>{t.Loading}</p>}
       {error && <p style={{ color: "red" }}>{t.error}</p>}
-      {/* weater Header*/}
+      {/* weather Header*/}
 
       <Header
-        city={city} // город
+        city={t.city} // город
         setCity={setCity} // смена города
         lang={lang} // тек язык
         setLang={setLang}
@@ -82,6 +83,7 @@ const App = () => {
           feelsLike={weather.feelsLike}
           condition={weather.condition}
           icon={weather.condition}
+          t={t}
         />
       )}
       {/* Addition stats*/}
@@ -93,10 +95,11 @@ const App = () => {
           humidity={weather.humidity}
           visibility={weather.visibility}
           dewPoint={weather.dewPoint}
+          t={t}
         />
       )}
       {/* Weekly forecast */}
-      {forecast.length > 0 && <Forecast forecast={forecast} />}
+      {forecast.length > 0 && <Forecast forecast={forecast} t={t} />}
     </div>
   );
 };

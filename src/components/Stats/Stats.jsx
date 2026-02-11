@@ -1,30 +1,30 @@
 import "./stats.css";
 
-const Stats = ({ wind, pressure, humidity, visibility, dewPoint }) => {
+const Stats = ({ wind, pressure, humidity, visibility, dewPoint, t }) => {
   return (
     <div className="weatherStats">
       <div className="card">
-        <p>Wind</p>
+        <p>{t.stats.wind}</p>
         <p>{wind} km/h</p>
       </div>
 
       <div className="card">
-        <p>Pressure</p>
+        <p>{t.stats.pressure}</p>
         <p>{pressure} hPa</p>
       </div>
 
       <div className="card">
-        <p>Humidity</p>
+        <p>{t.stats.humidity}</p>
         <p>{humidity}%</p>
       </div>
 
       <div className="card">
-        <p>Visibility</p>
+        <p>{t.stats.visibility}</p>
         <p>{visibility / 1000} km</p>
       </div>
 
       <div className="card">
-        <p>Dew Point</p>
+        <p>{t.stats.dewPoint}</p>
         <p>{dewPoint} °C</p>
       </div>
     </div>

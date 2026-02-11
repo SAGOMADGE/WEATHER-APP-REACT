@@ -12,7 +12,7 @@ const mapCurrentWeather = (rawCurWeatherData) => {
 
   const mappedCurWeatherData = {
     city: rawCurWeatherData.name,
-    country: rawCurWeatherData.sys.country,
+    // country: rawCurWeatherData.sys.country,
 
     temp,
     feelsLike: rawCurWeatherData.main.feels_like,
