@@ -1,0 +1,12 @@
+.weather-card-header {
+  font-weight: 650;
+  border-bottom: 2px solid var(--color-border);
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+}
+
+.weather-card-temp,
+.weather-card-cond {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-base);
+}

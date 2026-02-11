@@ -57,7 +57,7 @@ export const mapForecastData = (rawForecast) => {
 //////////////////////////////////
 // Fetch function
 //////////////////////////////////
-export async function getWeatherWithForecast(city) {
+export default async function getWeatherWithForecast(city) {
   // res погоды на день
   const resCurWeather = await fetch(
     `${URL_CUR_WEATHER}?q=${city}&appid=${API_KEY}&units=metric`,

@@ -4,7 +4,12 @@
 import { useState, useEffect } from "react";
 // Components import
 import HeaderBar from "./components/HeaderBar/HeaderBar.jsx";
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
 import { translations } from "./i18n/translations.js";
+// Api import
+import getWeatherWithForecast from "../src/api/api.js";
+import Stats from "./components/Stats/Stats.jsx";
+import Forecast from "./components/Forecast/Forecast.jsx";
 // CSS import
 import "./styles/App.css";
 
@@ -51,28 +56,24 @@ const App = () => {
     loadWeather(); // запускаем функцию
   }, [city]); // инструкция "реакту" для слежки изменений (dependencies array)
 
-  {
-    loading && <p>{t.Loading}</p>;
-  }
-
-  {
-    error && <p style={{ color: "red" }}>{t.error}</p>;
-  }
-
   return (
     // jsx
     <div className="app">
       {/* Header */}
-      {weather && (
-        <HeaderBar
-          city={city} // город
-          setCity // смена городаы
-          lang={lang} // тек язык
-          setLang={setLang}
-        />
-      )}
+      {loading && <p>{t.Loading}</p>}
+      {error && <p style={{ color: "red" }}>{t.error}</p>}
+      {/* weater Header*/}
+
+      <HeaderBar
+        city={city} // город
+        setCity={setCity} // смена города
+        lang={lang} // тек язык
+        setLang={setLang}
+        t={t}
+      />
 
       {/* Main Weather */}
+
       {weather && (
         <CurrentWeather
           temp={weather.temp}
@@ -81,8 +82,8 @@ const App = () => {
           icon={weather.condition}
         />
       )}
-
       {/* Addition stats*/}
+
       {weather && (
         <Stats
           wind={weather.windSpeed}
@@ -90,7 +91,6 @@ const App = () => {
           humidity={weather.humidity}
         />
       )}
-
       {/* Weekly forecast */}
       {forecast.length > 0 && <Forecast forecast={forecast} />}
     </div>

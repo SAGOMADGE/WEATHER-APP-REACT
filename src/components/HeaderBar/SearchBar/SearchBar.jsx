@@ -37,7 +37,6 @@ const SearchBar = ({ city, setCity, lang, setLang, t }) => {
         <input
           id="input-search"
           type="text"
-          placeholder={t.searchPlaceholder}
           value={inputValue} // подписываемся на инпут
           required
           onChange={(e) => setInputValueLocal(e.target.value)}

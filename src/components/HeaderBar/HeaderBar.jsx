@@ -6,22 +6,35 @@
 Всё состояние живёт в App.jsx, HeaderBar только:
 получает значения
 вызывает функции */
-
-import Search from "./SearchBar/SearchBar.jsx";
+import React from "react";
+import SearchBar from "./SearchBar/SearchBar.jsx";
 import Logo from "./Logo/Logo.jsx";
+import Theme from "./Theme/Theme.jsx";
 import "./HeaderBar.css";
 
-const HeaderBar = ({ city, setCity, lang, setLang }) => {
+const HeaderBar = ({ city, setCity, lang, setLang, t }) => {
   return (
-    <header className="header">
-      {/* Логотип */}
-      <Logo />
+    <header className="header-bar">
+      {/* Логотип слева*/}
+      <div className="header-left">
+        <Logo />
+      </div>
 
-      {/* Поиск + язык */}
-      <SearchBar city={city} setCity={setCity} lang={lang} setLang={setLang} />
+      {/* Поиск + язык по центру */}
+      <div className="header-center">
+        <SearchBar
+          city={city}
+          setCity={setCity}
+          lang={lang}
+          setLang={setLang}
+          t={t}
+        />
+      </div>
 
-      {/* Тема (пока заглушка) */}
-      <button className="theme-btn">🌙</button>
+      <div className="header-right">
+        {/* Тема (пока заглушка) */}
+        <Theme />
+      </div>
     </header>
   );
 };
