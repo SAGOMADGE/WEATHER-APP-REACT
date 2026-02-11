@@ -1,0 +1,5 @@
+.weatherStats {
+  display: flex;
+  gap: var(--space-lg);
+  font-size: var(--fs-xl);
+}

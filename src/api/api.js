@@ -7,23 +7,31 @@ const URL_CUR_WEATHER = "https://api.openweathermap.org/data/2.5/weather";
 
 // --- Маппер погоды на день
 const mapCurrentWeather = (rawCurWeatherData) => {
+  const temp = rawCurWeatherData.main.temp;
+  const humidity = rawCurWeatherData.main.temp;
+
   const mappedCurWeatherData = {
     city: rawCurWeatherData.name,
     county: rawCurWeatherData.sys.country,
 
-    temp: rawCurWeatherData.main.temp,
+    temp,
     feelsLike: rawCurWeatherData.main.feels_like,
     tempMin: rawCurWeatherData.main.temp_min,
     tempMax: rawCurWeatherData.main.temp_max,
 
-    humidity: rawCurWeatherData.main.humidity,
+    humidity,
     pressure: rawCurWeatherData.main.pressure,
 
     condition: rawCurWeatherData.weather[0].main,
     description: rawCurWeatherData.weather[0].description,
 
     windSpeed: rawCurWeatherData.wind.speed,
+    visibility: rawCurWeatherData.visibility, // в метрах;
+
+    dewPoint: +(temp - (100 - humidity) / 5).toFixed(1),
   };
+
+  // есть ветер, давление, влажность, видимость и точка росы
 
   return mappedCurWeatherData;
 };

@@ -91,6 +91,8 @@ const App = () => {
           wind={weather.windSpeed}
           pressure={weather.pressure}
           humidity={weather.humidity}
+          visibility={weather.visibility}
+          dewPoint={weather.dewPoint}
         />
       )}
       {/* Weekly forecast */}
