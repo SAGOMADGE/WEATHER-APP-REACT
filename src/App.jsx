@@ -66,7 +66,7 @@ const App = () => {
       {/* weather Header*/}
 
       <Header
-        city={t.city} // город
+        city={city} // город
         setCity={setCity} // смена города
         lang={lang} // тек язык
         setLang={setLang}
