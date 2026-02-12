@@ -46,13 +46,16 @@
 .input-area input:focus {
   border: 1px solid blue;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.3);
 }
 
 /* Показываем ошибку только если поле потеряло фокус */
 /* Так мы избегаем «красного сразу при загрузке». */
-.input-area input:invalid:not(:placeholder-shown) {
+.input-area input.invalid,
+.input-area input.invalid:focus {
   border: 1px solid red;
+  box-shadow: 0 0 0 1px rgba(248, 22, 22, 0.3);
+  background-color: rgba(255, 0, 0, 0.05);
 }
 
 .error-message {

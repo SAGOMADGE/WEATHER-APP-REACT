@@ -13,12 +13,15 @@ function isValidCity(value) {
 
 const SearchBar = ({ city, setCity, lang, setLang, t }) => {
   // состояния
-  const [inputValue, setInputValueLocal] = useState("");
+  const [inputValue, setInputValueLocal] = useState(city ?? "");
   const [touched, setTouched] = useState(false); // состояние которое информирует, ушел ли пользователь с поля
+
+  console.log("city:", city);
+  console.log("inputValue:", inputValue);
 
   // синхронизация city и inputValue
   useEffect(() => {
-    setInputValueLocal(city);
+    setInputValueLocal(city ?? "");
   }, [city]);
 
   // функция сабмита
@@ -31,6 +34,8 @@ const SearchBar = ({ city, setCity, lang, setLang, t }) => {
   // переменная валидности
   const isValid = inputValue === "" || isValidCity(inputValue);
 
+  const showError = !isValid && touched && inputValue.length > 0;
+
   return (
     <div className="input-area">
       <div className="input-and-error-area">
@@ -38,7 +43,7 @@ const SearchBar = ({ city, setCity, lang, setLang, t }) => {
           id="input-search"
           type="text"
           value={inputValue} // подписываемся на инпут
-          required
+          placeholder={t.header.searchPlaceholder}
           onChange={(e) => setInputValueLocal(e.target.value)}
           // клик по "Enter"
           onKeyDown={(e) => {
@@ -47,7 +52,7 @@ const SearchBar = ({ city, setCity, lang, setLang, t }) => {
             }
           }}
           onBlur={() => setTouched(true)} // пользователь ушел с поля
-          className={!isValid && touched ? "invalid" : ""} // если инпут не валидный , и фокус потерян добавляем класс "invalid"
+          className={showError ? "invalid" : ""} // если инпут не валидный , и фокус потерян добавляем класс "invalid"
         />
 
         {/* показываем ошибку только если инпут содержит хоть один символ, он не валидный и он в фокусе */}
