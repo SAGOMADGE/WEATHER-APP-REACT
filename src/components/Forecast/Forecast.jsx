@@ -10,17 +10,27 @@ import "./forecast.css";
 // Intl.DateTimeFormat(...).format(dateObj) - локализированное сокращение дня
 // Сравнения, добавления дней
 
+const formatForecastDate = (dateStr, lang) => {
+  if (!dateStr) return "";
+
+  const dateObj = new Date(dateStr + "T00:00:00");
+
+  const formatter = new Intl.DateTimeFormat(lang, {
+    weekday: "short",
+    day: "numeric",
+  });
+
+  const formatted = formatter.format(dateObj);
+
+  return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+};
+
 const Forecast = ({ forecast, t, lang }) => {
   return (
     <section className="forecast">
       {forecast.map((day, index) => {
-        const dateObj = new Date(day.date + "T00:00:00"); // 2026-02-12
-
-        const weekday = new Intl.DateTimeFormat(lang, {
-          weekday: "short",
-        }).format(dateObj); //
-
-        const label = index === 0 ? t.forecast.today : weekday;
+        const label =
+          index === 0 ? t.forecast.today : formatForecastDate(day.date, lang);
 
         return (
           <ForecastDayCard
