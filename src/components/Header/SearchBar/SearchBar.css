@@ -5,6 +5,16 @@
   position: relative; /* Точка отсчета для абсолютной ошибки */
 }
 
+.error-message {
+  position: absolute;
+  top: 100%; /* максимально вниз от родителя*/
+  left: var(--space-md); /* от левого края в права на 16px */
+  color: var(--color-error);
+  font-size: var(--fs-sm);
+  margin-top: var(--space-xs);
+  white-space: nowrap; /* без переноса на новую строку */
+}
+
 .input-wrapper {
   display: flex; /* Инпут и кнопка "Поиск" в одну линию */
   background-color: var(--color-surface);
