@@ -64,10 +64,11 @@ const App = () => {
   return (
     // jsx
     <div className="app">
-      {/* Header */}
+      {/* Loading or error states */}
       {loading && <p>{t.ui.loading}</p>}
       {error && <p style={{ color: "red" }}>{t.ui.error}</p>}
-      {/* weather Header*/}
+
+      {/* BLOCK 1: weather Header*/}
 
       <Header
         city={city} // город
@@ -77,7 +78,7 @@ const App = () => {
         t={t}
       />
 
-      {/* Main Weather */}
+      {/* BLOCK 2. Current Weather */}
 
       {weather && (
         <CurrentWeather
@@ -90,7 +91,8 @@ const App = () => {
           t={t}
         />
       )}
-      {/* Addition stats*/}
+
+      {/* BLOCK 3: Addition stats*/}
 
       {weather && (
         <Stats
@@ -102,7 +104,8 @@ const App = () => {
           t={t}
         />
       )}
-      {/* Weekly forecast */}
+
+      {/* BLOCK 4: Weekly forecast */}
       {forecast.length > 0 && (
         <Forecast forecast={forecast} t={t} lang={lang} />
       )}

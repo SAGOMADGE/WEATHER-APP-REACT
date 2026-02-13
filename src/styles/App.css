@@ -1,34 +1,24 @@
 .app {
+  /*1. Создаем контекст Flexbox */
   display: flex;
   flex-direction: column;
+
+  /*2. Расстягиваем на всю высоту экрана */
+  min-height: 100vh;
+
+  /* 3. Центрируем контейнер на больших экранах, 
+     а на маленьких даем небольшие отступы от краев */
+  max-width: 100%; /* На мобилке на всю ширину*/
+  margin: 0 auto;
+  padding: var(--space-md);
+
+  /* 4. ГЛАВНОЕ: Отступы между логическими блоками */
+  gap: var(--space-xl);
+
+  /* 5. Фон и цвет текста из переменных */
   background-color: var(--color-bg);
-  padding: var(--space-xl);
-  gap: var(--space-lg);
-}
-
-.app-header {
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-xxl);
   color: var(--text-primary);
-}
 
-.input-area {
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 400px;
-  gap: var(--space-sm);
-  background-color: var(--color-surface);
-  padding: var(--space-md);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-md);
-}
-
-.weather-card {
-  width: 100%;
-  max-width: 400px;
-  padding: var(--space-md);
-  background-color: var(--color-surface);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-md);
+  /* Плавный переход для будущей смены тем */
+  transition: background-color 300ms ease;
 }
