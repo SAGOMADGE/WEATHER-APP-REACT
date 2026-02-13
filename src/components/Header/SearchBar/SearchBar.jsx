@@ -37,39 +37,41 @@ const SearchBar = ({ city, setCity, lang, setLang, t }) => {
   const showError = !isValid && touched && inputValue.length > 0;
 
   return (
-    <div className="input-area">
-      <div className="input-and-error-area">
-        <input
-          id="input-search"
-          type="text"
-          value={inputValue} // подписываемся на инпут
-          placeholder={t.header.searchPlaceholder}
-          onChange={(e) => setInputValueLocal(e.target.value)}
-          // клик по "Enter"
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              handleSubmit();
-            }
-          }}
-          onBlur={() => setTouched(true)} // пользователь ушел с поля
-          className={showError ? "invalid" : ""} // если инпут не валидный , и фокус потерян добавляем класс "invalid"
-        />
+    <header className="header-bar">
+      <div className="search-container">
+        <div className="input-wrapper">
+          <input
+            id="input-search"
+            type="text"
+            value={inputValue} // подписываемся на инпут
+            placeholder={t.header.searchPlaceholder}
+            onChange={(e) => setInputValueLocal(e.target.value)}
+            // клик по "Enter"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSubmit();
+              }
+            }}
+            onBlur={() => setTouched(true)} // пользователь ушел с поля
+            className={showError ? "invalid" : ""} // если инпут не валидный , и фокус потерян добавляем класс "invalid"
+          />
+          {/* Кнопка поиска внутри интута или сразу за ним*/}
+          <button onClick={handleSubmit}>{t.header.searchButton}</button>
+        </div>
 
         {/* показываем ошибку только если инпут содержит хоть один символ, он не валидный и он в фокусе */}
         {inputValue && !isValid && touched && (
           <p className="error-message">Город не должен содержать цифры</p>
         )}
       </div>
-      {/* зона кнопок */}
-      <div className="input-buttons-area">
-        {/* кнопка поиска */}
-        <button onClick={handleSubmit}>{t.header.searchButton}</button>
-        {/* кнопка смены языка */}
-        <button onClick={() => setLang(lang === "ru" ? "en" : "ru")}>
-          {lang.toUpperCase()}
-        </button>
-      </div>
-    </div>
+      {/* кнопка смены языка отдельно */}
+      <button
+        className="lang-btn"
+        onClick={() => setLang(lang === "ru" ? "en" : "ru")}
+      >
+        {lang.toUpperCase()}
+      </button>
+    </header>
   );
 };
 
