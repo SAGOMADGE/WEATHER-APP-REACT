@@ -20,13 +20,13 @@
   background-color: var(--color-surface);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  overflow: hidden; /* Срезает углы у внутренней кнопки, чтобы они не торчали */
-  border: 2px solid transparent; /* заготовка под focus-effect */
-  transition: border-color 200ms;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* заготовка под focus-effect */
+  transition: border-color 300ms;
 }
 
 .input-wrapper:focus-within {
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 #input-search {
@@ -46,4 +46,15 @@
   padding: 0 var(--space-md);
   font-weight: var(--fw-base);
   cursor: pointer;
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+
+  transition:
+    opacity 200ms,
+    background-color 200ms;
+}
+
+.search-submit-btn:hover {
+  opacity: 0.9;
+  background-color: var(--color-primary-hover);
 }

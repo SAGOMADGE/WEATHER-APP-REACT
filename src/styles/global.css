@@ -75,6 +75,8 @@ body {
   --color-surface-hover: #eeeded;
   --color-primary: #2563eb; /* основной управляющий цвет */
   --color-primary-hover: #1745c2;
+  /* чистый, глубокйи синий */
+  --color-primary-rgb: 0, 122, 255;
 
   --color-success: #16a34a;
   --color-error: #dc2626;
