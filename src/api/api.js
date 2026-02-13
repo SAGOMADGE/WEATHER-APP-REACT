@@ -1,5 +1,7 @@
-const API_KEY = "b3ad058bc5daec2b9236aba02e90b21b";
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 const URL_CUR_WEATHER = "https://api.openweathermap.org/data/2.5/weather";
+
+console.log("API KEY:", import.meta.env.VITE_WEATHER_API_KEY);
 
 //////////////////////////////////
 // === Мапперы ==
@@ -38,7 +40,6 @@ const mapCurrentWeather = (rawCurWeatherData) => {
 
 // --- Маппер погоды на неделю ---
 export const mapForecastData = (rawForecast) => {
-  // rawForecast.daily — объект с массивами: temperature_2m_max, temperature_2m_min, weathercode, humidity_2m_max, time
   const {
     time,
     temperature_2m_max,
@@ -47,12 +48,9 @@ export const mapForecastData = (rawForecast) => {
     weathercode,
   } = rawForecast.daily;
 
-  /* API не вернул  «7 объектов дней».
-  Он вернул 5 массивов, которые синхронизированы по индексу, поэтому я при map использую индекс 
-  
-  👉 Один индекс = один день*/
+  /* 👉 Один индекс = один день*/
   const forecast = time.map((date, index) => ({
-    date, // "2026-02-10"
+    date, // "2026-02-10" <--
     dayTemp: temperature_2m_max[index],
     nightTemp: temperature_2m_min[index],
     humidity: relative_humidity_2m_max[index],
@@ -93,15 +91,8 @@ export default async function getWeatherWithForecast(city) {
   // res прогноза на неделю
   const resForecastWeekly = await fetch(forecastUrl);
 
-  // логи
-  console.log("forecast status:", resForecastWeekly.status);
-  console.log("forecast url", forecastUrl);
-
   // парсим res прогноза на неделю
   const rawForecastWeeklyData = await resForecastWeekly.json();
-
-  // логи
-  console.log("raw forecast", rawForecastWeeklyData);
 
   if (!resForecastWeekly.ok) {
     throw new Error("ошибка запроса прогноза погоды");

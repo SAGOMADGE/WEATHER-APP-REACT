@@ -67,7 +67,7 @@ body {
   --text-muted: #777;
 
   /* colors */
-  --color-bg: #a39999; /* самый нижний слой */
+  --color-bg: #faf6f6; /* самый нижний слой */
   --color-surface: #f7f7f7; /*  карточки / панели */
   --color-border: #464648; /* разделители */
   --color-border-hover: #adadad;

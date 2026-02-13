@@ -14,11 +14,15 @@ import Forecast from "./components/Forecast/Forecast.jsx";
 // CSS import
 import "./styles/App.css";
 
-// состояния
-// кто меняет city? → Search
-// кто читает weather? → WeatherCard
-// когда loading = true? → перед запросом
-// когда error? → если fetch упал
+/* App.jsx — это мозг.
+Он:
+хранит state (city, weather, forecast, lang)
+запускает fetch
+решает, что рендерить
+передаёт данные вниз
+App — это умный компонент (container component).
+Он думает.
+Остальные — отображают. */
 
 const App = () => {
   const [city, setCity] = useState("");
@@ -61,8 +65,8 @@ const App = () => {
     // jsx
     <div className="app">
       {/* Header */}
-      {loading && <p>{t.Loading}</p>}
-      {error && <p style={{ color: "red" }}>{t.error}</p>}
+      {loading && <p>{t.ui.loading}</p>}
+      {error && <p style={{ color: "red" }}>{t.ui.error}</p>}
       {/* weather Header*/}
 
       <Header
@@ -99,7 +103,9 @@ const App = () => {
         />
       )}
       {/* Weekly forecast */}
-      {forecast.length > 0 && <Forecast forecast={forecast} t={t} />}
+      {forecast.length > 0 && (
+        <Forecast forecast={forecast} t={t} lang={lang} />
+      )}
     </div>
   );
 };

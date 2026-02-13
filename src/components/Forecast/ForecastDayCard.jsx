@@ -1,10 +1,10 @@
-const ForecastDayCard = ({ day }) => {
+const ForecastDayCard = ({ label, dayTemp, nightTemp, humidity }) => {
   return (
     <div className="forecast-card">
-      <p>{day.date}</p>
-      <p>{day.dayTemp}°</p>
-      <p>{day.nightTemp}°</p>
-      <p>{day.humidity}%</p>
+      <p>{label}</p>
+      <p>{dayTemp}°</p>
+      <p>{nightTemp}°</p>
+      <p>{humidity}%</p>
     </div>
   );
 };
