@@ -1,15 +1,9 @@
 // Search.jsx - управляет вводом и отправкой
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, React } from "react";
 import "./SearchBar.css";
-
-// Проверка валидности города
-function isValidCity(value) {
-  // ^ и $ означают "начало и конец строки"
-  // [a-zA-Zа-яА-ЯёЁ\- ]+ — разрешены буквы, дефис и пробел, один и более символов
-  const regex = /^[a-zA-Zа-яА-ЯёЁ\- ]+$/;
-  return regex.test(value);
-}
+import SearchIcon from "./SearchIcon.jsx";
+import validateCity from "../../../utils/validateCity.js";
 
 const SearchBar = ({ city, setCity, lang, setLang, t }) => {
   // состояния
@@ -32,7 +26,7 @@ const SearchBar = ({ city, setCity, lang, setLang, t }) => {
   };
 
   // переменная валидности
-  const isValid = inputValue === "" || isValidCity(inputValue);
+  const isValid = inputValue === "" || validateCity(inputValue);
 
   const showError = !isValid && touched && inputValue.length > 0;
 
@@ -56,7 +50,9 @@ const SearchBar = ({ city, setCity, lang, setLang, t }) => {
             className={showError ? "invalid" : ""} // если инпут не валидный , и фокус потерян добавляем класс "invalid"
           />
           {/* Кнопка поиска внутри интута или сразу за ним*/}
-          <button onClick={handleSubmit}>{t.header.searchButton}</button>
+          <button className="search-submit-btn" onClick={handleSubmit}>
+            <SearchIcon />
+          </button>
         </div>
 
         {/* показываем ошибку только если инпут содержит хоть один символ, он не валидный и он в фокусе */}

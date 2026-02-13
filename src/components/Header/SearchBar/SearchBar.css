@@ -1,0 +1,39 @@
+.search-container {
+  flex: 1; /* Говорим поиску: "забери все свободное место" */
+  display: flex;
+  flex-direction: column; /* Инпут сверху, ошибка снизу */
+  position: relative; /* Точка отсчета для абсолютной ошибки */
+}
+
+.input-wrapper {
+  display: flex; /* Инпут и кнопка "Поиск" в одну линию */
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden; /* Срезает углы у внутренней кнопки, чтобы они не торчали */
+  border: 2px solid transparent; /* заготовка под focus-effect */
+  transition: border-color 200ms;
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--color-primary);
+}
+
+#input-search {
+  flex: 1; /* инпут тянется внутри капсулы */
+  border: none; /* Убираем стандартные рамки */
+  padding: var(--space-base) var(--space-md);
+  font-size: var(--fs-md);
+  outline: none; /* фокус выше уже сделан */
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.search-submit-btn {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0 var(--space-md);
+  font-weight: var(--fw-base);
+  cursor: pointer;
+}
