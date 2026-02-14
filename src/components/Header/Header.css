@@ -8,5 +8,16 @@
 
 .logo {
   font-weight: var(--fw-bold);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xl);
+  letter-spacing: -0.02;
+  color: var(--text-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-dot {
+  color: var(--color-primary);
 }

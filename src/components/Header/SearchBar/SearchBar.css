@@ -21,6 +21,8 @@
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   border: 1px solid rgba(0, 0, 0, 0.1); /* заготовка под focus-effect */
+  overflow: hidden;
+
   transition: border-color 300ms;
 }
 
@@ -37,6 +39,12 @@
   outline: none; /* фокус выше уже сделан */
   background: transparent;
   color: var(--text-primary);
+
+  transition: background 200ms ease;
+}
+
+.input-wrapper:hover {
+  background-color: rgba(231, 231, 231, 0.03);
 }
 
 .search-submit-btn {
@@ -46,8 +54,6 @@
   padding: 0 var(--space-md);
   font-weight: var(--fw-base);
   cursor: pointer;
-  border-top-right-radius: var(--radius-md);
-  border-bottom-right-radius: var(--radius-md);
 
   transition:
     opacity 200ms,
@@ -57,4 +63,28 @@
 .search-submit-btn:hover {
   opacity: 0.9;
   background-color: var(--color-primary-hover);
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 300 ease,
+    border-color 300ms ease,
+    opacity 200ms ease-out;
+  box-shadow: var(--shadow-md);
+}
+
+.lang-btn:hover {
+  background: rgba(var(--color-primary-rgb), 0.05);
+  border-color: var(--color-primary);
+}
+
+.lang-btn:active {
+  transform: scale(0.97);
 }

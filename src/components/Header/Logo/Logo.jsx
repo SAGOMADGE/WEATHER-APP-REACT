@@ -1,5 +1,9 @@
 const Logo = () => {
-  return <div className="logo">SAGOMADGE</div>;
+  return (
+    <a className="logo">
+      SAGOMADGE<span className="logo-dot">.</span>
+    </a>
+  );
 };
 
 export default Logo;
