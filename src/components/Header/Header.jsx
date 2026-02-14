@@ -32,7 +32,13 @@ const HeaderBar = ({ city, setCity, lang, setLang, t }) => {
       </div>
 
       <div className="header-right">
-        {/* Тема (пока заглушка) */}
+        <button
+          className="lang-btn"
+          onClick={() => setLang(lang === "ru" ? "en" : "ru")}
+        >
+          {lang.toUpperCase()}
+        </button>
+
         <Theme />
       </div>
     </header>
