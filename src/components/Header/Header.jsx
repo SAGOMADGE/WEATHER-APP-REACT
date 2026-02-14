@@ -22,13 +22,7 @@ const HeaderBar = ({ city, setCity, lang, setLang, t }) => {
 
       {/* Поиск + язык по центру */}
       <div className="header-center">
-        <SearchBar
-          city={city}
-          setCity={setCity}
-          lang={lang}
-          setLang={setLang}
-          t={t}
-        />
+        <SearchBar city={city} setCity={setCity} t={t} />
       </div>
 
       <div className="header-right">

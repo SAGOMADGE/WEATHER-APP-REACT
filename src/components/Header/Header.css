@@ -1,23 +1,77 @@
 .header-bar {
   display: flex; /* включаем гибкость */
   align-items: center;
-  gap: var(--space-md); /* расстояние между поиском и кнопкой языка */
+  justify-content: space-between;
+  gap: var(--space-sm); /* расстояние между поиском и кнопкой языка */
   width: 100%; /* расстягиваем на всю ширину мобилки */
   padding: var(--space-sm) 0;
 }
 
+.search-container {
+  width: 100%;
+}
+
+.header-left,
+.header-right {
+  flex-shrink: 0;
+  width: auto;
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.header-center {
+  flex: 1; /* поиск заберет все свободное место */
+  min-width: 0;
+  display: flex;
+}
+
 .logo {
   font-weight: var(--fw-bold);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-lg);
   letter-spacing: -0.02;
   color: var(--text-primary);
   text-decoration: none;
   text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
 }
 
 .logo-dot {
   color: var(--color-primary);
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 300ms ease-in,
+    border-color 300ms ease-in,
+    transform 300ms ease-in,
+    box-shadow 300ms ease-in;
+  box-shadow: var(--shadow-md);
+}
+
+.lang-btn:hover {
+  transition:
+    background 200ms ease-out,
+    border-color 200ms ease-out,
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out;
+  background: rgba(var(--color-primary-rgb), 0.05);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.lang-btn:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 480px) {
+  .logo-extra {
+    display: none;
+  }
 }
