@@ -12,23 +12,14 @@ const iconMap = {
   Mist: mistIcon,
 };
 
-const WeatherIcon = ({ condition }) => {
-  const IconSrc = iconMap[condition] || "❓";
+const CurrentWeatherIcon = ({ condition }) => {
+  const IconSrc = iconMap[condition] || cloudsIcon;
 
   return (
     <div className="weather-icon-wrapper">
-      <img
-        src={IconSrc}
-        alt={condition}
-        className="weather-icon"
-        style={{
-          width: "100px",
-          height: "100px",
-          objectFit: "contain",
-        }}
-      />
+      <img src={IconSrc} alt={condition} className="weather-icon" />
     </div>
   );
 };
 
-export default WeatherIcon;
+export default CurrentWeatherIcon;

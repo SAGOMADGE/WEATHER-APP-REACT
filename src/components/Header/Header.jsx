@@ -12,7 +12,7 @@ import Logo from "./Logo/Logo.jsx";
 import Theme from "./Theme/Theme.jsx";
 import "./Header.css";
 
-const HeaderBar = ({ city, setCity, lang, setLang, t }) => {
+const HeaderBar = ({ city, setCity, lang, setLang, t, isDark, setIsDark }) => {
   return (
     <header className="header-bar">
       {/* Логотип слева*/}
@@ -33,7 +33,7 @@ const HeaderBar = ({ city, setCity, lang, setLang, t }) => {
           {lang.toUpperCase()}
         </button>
 
-        <Theme />
+        <Theme isDark={isDark} setIsDark={setIsDark} />
       </div>
     </header>
   );

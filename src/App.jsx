@@ -31,6 +31,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [lang, setLang] = useState("ru");
+  const [isDark, setIsDark] = useState(false);
 
   const t = translations[lang]; // если lang = ru, то t это обьект с значениями элементов страницы на русском языке
 
@@ -63,7 +64,7 @@ const App = () => {
 
   return (
     // jsx
-    <div className="app">
+    <div className={`app ${isDark ? "dark-theme" : "light-theme"}`}>
       {/* Loading or error states */}
       {loading && <p>{t.ui.loading}</p>}
       {error && <p style={{ color: "red" }}>{t.ui.error}</p>}
@@ -73,6 +74,8 @@ const App = () => {
       <Header
         city={city} // город
         setCity={setCity} // смена города
+        isDark={isDark}
+        setIsDark={setIsDark}
         lang={lang} // тек язык
         setLang={setLang}
         t={t}

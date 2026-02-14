@@ -13,17 +13,17 @@ const CurrentWeather = ({
   t,
 }) => {
   return (
-    <div className="currentWeatherContainer">
-      <div className="location">
-        <h2>{city}</h2>
-        {/* <h2>{country}</h2> */}
+    <div className="current-weather">
+      <div className="current-weather__location">
+        <h2 className="current-weather__city">{city}</h2>
       </div>
 
-      <CurrentWeatherIcon icon={icon} condition={condition} />
-      <div className="WeatherInfo">
+      <div className="current-weather__main">
+        <CurrentWeatherIcon icon={icon} condition={condition} />
         <Temperature temp={temp} />
-        <ConditionInfo condition={condition} feelsLike={feelsLike} t={t} />
       </div>
+
+      <ConditionInfo condition={condition} feelsLike={feelsLike} t={t} />
     </div>
   );
 };
