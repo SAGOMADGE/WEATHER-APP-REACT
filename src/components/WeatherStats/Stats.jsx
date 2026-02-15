@@ -13,12 +13,19 @@ const Stats = ({
     <div className="weather-stats">
       <div className="card">
         <p>{t.stats.wind}</p>
-        <p>{wind} km/h</p>
+        <p>
+          {wind}{" "}
+          <span>
+            {t.stats.km}/{t.stats.h}
+          </span>
+        </p>
       </div>
 
       <div className="card">
         <p>{t.stats.pressure}</p>
-        <p>{pressure} hPa</p>
+        <p>
+          {pressure} <span>{t.stats.hPa}</span>
+        </p>
       </div>
 
       <div className="card">
@@ -28,7 +35,9 @@ const Stats = ({
 
       <div className="card">
         <p>{t.stats.visibility}</p>
-        <p>{visibility / 1000} km</p>
+        <p>
+          {visibility / 1000} <span>{t.stats.km}</span>
+        </p>
       </div>
 
       <div className="card">
