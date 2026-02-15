@@ -23,6 +23,7 @@ export const translations = {
       humidity: "Влажность",
       visibility: "Видимость",
       dewPoint: "Точка росы",
+      uvIndex: "UV-индекс",
     },
 
     forecast: {
@@ -60,6 +61,7 @@ export const translations = {
       humidity: "Humidity",
       visibility: "Visibility",
       dewPoint: "Dew point",
+      uvIndex: "UV-index",
     },
 
     forecast: {

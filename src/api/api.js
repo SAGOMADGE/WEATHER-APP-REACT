@@ -46,6 +46,7 @@ export const mapForecastData = (rawForecast) => {
     temperature_2m_min,
     relative_humidity_2m_max,
     weathercode,
+    uv_index_max,
   } = rawForecast.daily;
 
   /* 👉 Один индекс = один день*/
@@ -55,6 +56,7 @@ export const mapForecastData = (rawForecast) => {
     nightTemp: temperature_2m_min[index],
     humidity: relative_humidity_2m_max[index],
     weatherCode: weathercode[index], // потом можешь сопоставить с картинкой/иконкой
+    uvIndex: uv_index_max[index],
   }));
 
   return forecast;
@@ -85,7 +87,7 @@ export default async function getWeatherWithForecast(city) {
   // ---ссылка хранится в переменной для удобства и безопасности --- //
   const forecastUrl =
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
-    `&daily=temperature_2m_max,temperature_2m_min,relative_humidity_2m_max,weathercode` +
+    `&daily=temperature_2m_max,temperature_2m_min,relative_humidity_2m_max,weathercode,uv_index_max` +
     `&forecast_days=7&timezone=auto`;
 
   // res прогноза на неделю

@@ -9,7 +9,7 @@ import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
 import { translations } from "./i18n/translations.js";
 // Api import
 import getWeatherWithForecast from "../src/api/api.js";
-import Stats from "./components/Stats/Stats.jsx";
+import Stats from "./components/WeatherStats/Stats.jsx";
 import Forecast from "./components/Forecast/Forecast.jsx";
 // CSS import
 import "./styles/App.css";
@@ -104,6 +104,7 @@ const App = () => {
           humidity={weather.humidity}
           visibility={weather.visibility}
           dewPoint={weather.dewPoint}
+          uvIndex={forecast[0]?.uvIndex} // Берем uvIndex из первого дня
           t={t}
         />
       )}
