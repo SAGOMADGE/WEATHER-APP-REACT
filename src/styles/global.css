@@ -28,12 +28,15 @@ body {
 /* === ROOT VARIABLES === */
 :root {
   /* spacing */
+  --space-xxs: 2px;
   --space-xs: 4px;
   --space-sm: 8px;
   --space-base: 12px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
+  --space-2xl: 40px;
+  --space-3xl: 52px;
 
   /* radius */
   --radius-xs: 4px;
@@ -48,19 +51,27 @@ body {
   --fs-xs: 12px;
   --fs-sm: 14px;
   --fs-md: 16px;
-  --fs-logo: 18px;
   --fs-lg: 20px;
   --fs-xl: 24px;
-  --fs-xxl: 32px;
+  --fs-xxl: 34px;
+  --fs-3xl: 40px;
+  --fs-unit: 50px;
+  --fs-temp: 120px;
 
   /* line-height*/
+  --line-sm: 1;
   --lh-tight: 1.2;
   --lh-base: 1.5;
   --lh-relaxed: 1.7;
 
+  /* img width */
+  --img-width: 140px;
+
   /* font weight */
   --fw-regular: 400;
   --fw-medium: 500;
+  --fw-boldish: 600;
+  --fw-accent: 700;
   --fw-bold: 800;
 
   /* text */

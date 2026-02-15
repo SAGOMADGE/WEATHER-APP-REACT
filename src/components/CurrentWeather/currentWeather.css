@@ -1,0 +1,66 @@
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центрируем все по горизонтали */
+  padding: var(--space-sm);
+  gap: var(--space-sm); /* Отступы между блоками (город/иконка/детали) */
+}
+
+.current-weather__main {
+  display: flex;
+  align-items: flex-end; /* Центрировка иконки и текста по вертикали */
+  gap: var(--space-xl);
+}
+
+.weather-icon {
+  width: var(--img-width);
+  height: var(--img-width);
+}
+
+/* Стилизация шрифтов */
+.current-weather__city {
+  font-size: var(--fs-xxl);
+  font-weight: var(--fw-base);
+  margin: 0;
+}
+
+.current-weather__temp-value {
+  font-size: var(--fs-temp); /* акцент на главном */
+  font-weight: var(--fw-md);
+  line-height: var(--ln-sm);
+}
+
+.current-weather__temp-unit {
+  font-size: var(--fs-unit);
+  vertical-align: top;
+  position: relative;
+  top: 0.5em;
+}
+
+.current-weather__details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xxs);
+  margin-top: var(--space-base);
+  text-align: center;
+  opacity: 0.8; /* Делаем описание чуть мягче */
+  font-size: var(--fs-lg);
+  color: rgb(50, 49, 57);
+}
+
+.current-weather__description {
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.current-weather__feels-like {
+  font-size: var(--fs-md);
+  color: var(--text-secondary);
+}
+
+.thermomemter-icon {
+  width: 20px;
+  aspect-ratio: 1 / 1;
+}

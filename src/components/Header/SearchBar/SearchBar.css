@@ -44,6 +44,7 @@
   width: 100%;
   border: none; /* Убираем стандартные рамки */
   padding: var(--space-base) var(--space-md);
+  padding-left: 1.5rem;
   font-size: var(--fs-md);
   outline: none; /* фокус выше уже сделан */
   background: transparent;

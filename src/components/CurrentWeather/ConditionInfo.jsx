@@ -1,6 +1,10 @@
+import ThermomemterIcon from "../../icons/Thermometer.svg";
+
+const ThermometerSrc = ThermomemterIcon;
+
 const ConditionInfo = ({ condition, feelsLike, t }) => {
   return (
-    <div className="current-weather_details">
+    <div className="current-weather__details">
       {/* описание погоды */}
       <div className="current-weather__description">
         {t?.current?.conditions?.[condition] || condition}
@@ -8,8 +12,15 @@ const ConditionInfo = ({ condition, feelsLike, t }) => {
 
       {/* ощущается как */}
       <div className="current-weather__feels-like">
-        {t.current.feelsLike}
-        {Math.round(feelsLike)} °C
+        <span>
+          {t.current.feelsLike} {Math.round(feelsLike)}{" "}
+          <img
+            className="thermomemter-icon"
+            src={ThermometerSrc}
+            alt="Thermometer icon"
+          ></img>
+          °C
+        </span>
       </div>
     </div>
   );
