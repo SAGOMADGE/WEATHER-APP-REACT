@@ -21,3 +21,33 @@
     transform 200ms ease,
     background 200ms ease;
 }
+
+.card:active {
+  transform: scale(0.98);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.card p:first-child {
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.card p:last-child {
+  font-family: "Unit", sans-serif;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-boldish);
+  color: var(--color-stats-units);
+  margin: 0;
+}
+
+/* Планшетная и десктопная версия */
+/* @media (min-width: 768px) {
+  .weatherStats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+} */
