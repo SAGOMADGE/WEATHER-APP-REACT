@@ -1,7 +1,7 @@
 import cloudsIcon from "../../icons/cloudy.svg";
 import sunIcon from "../../icons/sunny.svg";
 import rainIcon from "../../icons/rain.svg";
-import snowIcon from "../../icons/snowVarTwo.svg";
+import snowIcon from "../../icons/snow.svg";
 import mistIcon from "../../icons/mistIcon.svg";
 
 const iconMap = {

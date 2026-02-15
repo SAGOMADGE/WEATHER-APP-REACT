@@ -8,7 +8,7 @@
 
 .current-weather__main {
   display: flex;
-  align-items: flex-end; /* Центрировка иконки и текста по вертикали */
+  align-items: center; /* Центрировка иконки и текста по вертикали */
   gap: var(--space-xl);
 }
 
@@ -20,6 +20,7 @@
 /* Стилизация шрифтов */
 .current-weather__city {
   font-size: var(--fs-xxl);
+  font-family: var(--ff-accent), "sans-serif";
   font-weight: var(--fw-base);
   margin: 0;
 }
@@ -56,11 +57,26 @@
 }
 
 .current-weather__feels-like {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* выравнивание иконки и текста по одной горизонтальной линии */
+  gap: var(--space-xxs); /* небольшой зазор, чтобы не слипались */
   font-size: var(--fs-md);
   color: var(--text-secondary);
+  margin-top: var(--space-sm);
 }
 
-.thermomemter-icon {
-  width: 20px;
-  aspect-ratio: 1 / 1;
+.icon-thermometer {
+  width: 1.25rem;
+  height: 1.25rem;
+
+  color: var(--color-temp-icon);
+
+  /* Lucide иконки управляются через stroke */
+  stroke-width: 2px;
+}
+
+.feels-like__value {
+  font-weight: var(--fw-accent);
+  color: var(--text-primary);
 }

@@ -18,7 +18,7 @@ design tokens (CSS variables)
 
 body {
   min-height: 100vh;
-  font-family: var(--font-base);
+  font-family: var(--ff-primary), "sans-serif";
   font-size: var(--fs-md);
   line-height: var(--lh-base);
   color: var(--text-primary);
@@ -28,8 +28,9 @@ body {
 /* === ROOT VARIABLES === */
 :root {
   /* spacing */
-  --space-xxs: 2px;
-  --space-xs: 4px;
+  --space-xxxs: 2px;
+  --space-xxs: 4px;
+  --space-xs: 6px;
   --space-sm: 8px;
   --space-base: 12px;
   --space-md: 16px;
@@ -45,9 +46,11 @@ body {
   --radius-lg: 24px;
   --radius-xl: 32px;
 
-  /* font */
-  --font-base: system-ui, sans-serif;
+  /* font families */
+  --ff-primary: "Inter", sans-serif;
+  --ff-accent: "Montserrat", sans-serif;
 
+  /* font sizes */
   --fs-xs: 12px;
   --fs-sm: 14px;
   --fs-md: 16px;
@@ -93,6 +96,8 @@ body {
   --color-success: #16a34a;
   --color-error: #dc2626;
 
+  --color-temp-icon: rgb(252, 16, 16);
+
   /* shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -103,6 +108,8 @@ body {
   --color-bg: #0f172a;
   --color-surface: #1e293b;
   --text-primary: #f8fafc;
+  --text-secondary: #d5dce3;
+  --color-temp-icon: rgb(247, 69, 69);
 }
 
 /* === GLOBAL STYLES FOR ELEMENTS */

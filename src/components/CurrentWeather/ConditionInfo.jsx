@@ -1,6 +1,4 @@
-import ThermomemterIcon from "../../icons/Thermometer.svg";
-
-const ThermometerSrc = ThermomemterIcon;
+import { Thermometer } from "lucide-react";
 
 const ConditionInfo = ({ condition, feelsLike, t }) => {
   return (
@@ -12,15 +10,12 @@ const ConditionInfo = ({ condition, feelsLike, t }) => {
 
       {/* ощущается как */}
       <div className="current-weather__feels-like">
-        <span>
-          {t.current.feelsLike} {Math.round(feelsLike)}{" "}
-          <img
-            className="thermomemter-icon"
-            src={ThermometerSrc}
-            alt="Thermometer icon"
-          ></img>
-          °C
-        </span>
+        <Thermometer className="icon-thermometer" />
+
+        <p>
+          {t.current.feelsLike}{" "}
+          <span className="feels-like__value"> {Math.round(feelsLike)} °C</span>
+        </p>
       </div>
     </div>
   );
