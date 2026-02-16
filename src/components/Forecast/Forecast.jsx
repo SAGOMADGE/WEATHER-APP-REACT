@@ -1,5 +1,5 @@
 import ForecastDayCard from "./ForecastDayCard.jsx";
-import "./forecast.css";
+import "./Forecast.css";
 
 const formatForecastDate = (dateStr, lang) => {
   if (!dateStr) return "";

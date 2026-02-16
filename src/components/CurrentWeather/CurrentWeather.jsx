@@ -3,7 +3,6 @@ import CurrentWeatherIcon from "./CurrentWeatherIcon.jsx";
 import Temperature from "./Temperature.jsx";
 import ConditionInfo from "./ConditionInfo.jsx";
 import "./CurrentWeather.css";
-
 const CurrentWeather = ({
   city,
   // country,
