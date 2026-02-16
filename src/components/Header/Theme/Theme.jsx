@@ -24,7 +24,6 @@ const Theme = ({ isDark, setIsDark }) => {
           width="20"
           height="20"
           viewBox="0 0 24 24"
-          fill="none"
           stroke="orange"
           strokeWidth="2"
           fill="orange"
