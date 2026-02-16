@@ -31,7 +31,7 @@ body {
   --space-xxxs: 2px;
   --space-xxs: 4px;
   --space-xs: 6px;
-  --space-sm: 8px;
+  --space-sm: 10px;
   --space-base: 12px;
   --space-md: 16px;
   --space-lg: 24px;
@@ -81,6 +81,7 @@ body {
   --text-primary: #2d3436;
   --text-secondary: #555;
   --text-muted: #777;
+  --text-humidity: #3498db;
 
   /* colors */
   --color-bg: #faf9f6; /* самый нижний слой */
@@ -89,6 +90,8 @@ body {
   --card-border: transparent;
   --color-border: #464648; /* разделители */
   --color-border-hover: #adadad;
+
+  --color-border-thin: rgba(255, 255, 255, 0.1);
   --color-surface-hover: #eeeded;
   --color-primary: #2563eb; /* основной управляющий цвет */
   --color-primary-hover: #1745c2;
@@ -135,6 +138,10 @@ body {
 
   /* basic color */
   --color-stats-units: #ffffff;
+
+  --text-accent: #c2d4d9;
+
+  --text-humidity: #3498db;
 }
 
 /* === GLOBAL STYLES FOR ELEMENTS */

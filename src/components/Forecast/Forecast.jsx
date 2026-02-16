@@ -18,7 +18,7 @@ const formatForecastDate = (dateStr, lang) => {
 
 const Forecast = ({ forecast, t, lang }) => {
   return (
-    <section className="forecast">
+    <section className="forecast-days">
       {forecast.map((day, index) => {
         const label =
           index === 0 ? t.forecast.today : formatForecastDate(day.date, lang);

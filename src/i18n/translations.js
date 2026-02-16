@@ -32,7 +32,7 @@ export const translations = {
     },
 
     forecast: {
-      title: "Прогноз на неделю",
+      weeklyForecast: "Прогноз на неделю",
       today: "Сегодня",
     },
 
@@ -74,7 +74,7 @@ export const translations = {
     },
 
     forecast: {
-      title: "Weekly forecast",
+      weeklyForecast: "Weekly forecast",
       today: "Today",
     },
 

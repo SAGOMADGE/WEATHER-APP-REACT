@@ -1,4 +1,4 @@
-import "./stats.css";
+import "./Stats.css";
 
 const Stats = ({
   wind,

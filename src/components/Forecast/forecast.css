@@ -1,0 +1,67 @@
+.forecast {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  width: 100%;
+  margin-top: var(--space);
+}
+
+.forecast-days {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  width: 100%;
+  margin-top: var(--space);
+}
+
+.forecast-title {
+  text-align: center;
+  font-family: "Monseratt", sans-serif;
+}
+
+.forecast-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Распределяем данные по краям */
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid var(--color-border-thin);
+  border-radius: var(--radius-md);
+  padding: var(--space-base) var(--space-md);
+  transition: transform 200ms ease;
+}
+
+/* Стили для Label (День недели) */
+.forecast-card p:first-child {
+  flex: 1;
+  font-family: "Montserrat", sans-serif;
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.forecast-card p:not(:first-child) {
+  font-family: "Unit", sans-serif;
+  margin: 0;
+  padding-left: 15px;
+  min-width: 50px;
+  text-align: right;
+}
+
+.forecast-card p:nth-child(2) {
+  color: var(--text-primary);
+  font-weight: var(--fw-boldish);
+}
+
+.forecast-card p:nth-child(3) {
+  color: var(--text-secondary);
+}
+
+.forecast-card p:last-child {
+  color: var(--text-humidity);
+  font-size: var(--fs-sm);
+}
