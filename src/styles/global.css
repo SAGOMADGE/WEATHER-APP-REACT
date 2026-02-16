@@ -78,13 +78,15 @@ body {
   --fw-bold: 800;
 
   /* text */
-  --text-primary: #222;
+  --text-primary: #2d3436;
   --text-secondary: #555;
   --text-muted: #777;
 
   /* colors */
   --color-bg: #faf9f6; /* самый нижний слой */
   --color-surface: #f7f7f7; /*  карточки / панели */
+  --card-bg: #ffffff;
+  --card-border: transparent;
   --color-border: #464648; /* разделители */
   --color-border-hover: #adadad;
   --color-surface-hover: #eeeded;
@@ -103,14 +105,36 @@ body {
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+  /*  */
+  --color-card-active: rgba(249, 249, 249, 0.08);
 }
 
 .dark-theme {
+  /* colors */
   --color-bg: #0f172a;
   --color-surface: #1e293b;
+
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-shadow: none;
+
+  /* text color */
   --text-primary: #f8fafc;
   --text-secondary: #d5dce3;
+  --text-accent: rgba(255, 255, 255, 0.6);
+
+  /* icon color */
   --color-temp-icon: rgb(247, 69, 69);
+
+  /* border */
+  --color-border-thin: rgba(255, 255, 255, 0.1);
+
+  /* --color-card-active */
+  --color-card-active: rgba(255, 255, 255, 0.08);
+
+  /* basic color */
+  --color-stats-units: #ffffff;
 }
 
 /* === GLOBAL STYLES FOR ELEMENTS */
