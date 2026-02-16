@@ -111,12 +111,15 @@ const App = () => {
 
       {/* BLOCK 4: Weekly forecast */}
 
-      <div className="forecast">
-        <h2 className=" forecast-title">{t.forecast.weeklyForecast}</h2>
-        {forecast.length > 0 && (
-          <Forecast forecast={forecast} t={t} lang={lang} />
-        )}
-      </div>
+      {forecast.length > 0 && (
+        <div className="forecast">
+          <h2 className=" forecast-title">{t.forecast.weeklyForecast}</h2>
+          {forecast.length > 0 && (
+            <Forecast forecast={forecast} t={t} lang={lang} />
+          )}
+          ;
+        </div>
+      )}
     </div>
   );
 };
