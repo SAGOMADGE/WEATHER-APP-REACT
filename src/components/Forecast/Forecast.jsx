@@ -16,7 +16,7 @@ const formatForecastDate = (dateStr, lang) => {
   return formatted.charAt(0).toUpperCase() + formatted.slice(1);
 };
 
-const Forecast = ({ forecast, t, lang }) => {
+const Forecast = ({ forecast, condition, t, lang }) => {
   return (
     <ul className="forecast-list">
       {forecast.map((day, index) => {
@@ -29,7 +29,7 @@ const Forecast = ({ forecast, t, lang }) => {
             label={label}
             dayTemp={day.dayTemp}
             nightTemp={day.nightTemp}
-            condition={day.condition} // Передаем состояние (Sunny/Cloudy)
+            condition={condition} // Передаем состояние (Sunny/Cloudy)
             icon={day.icon} // Передаем URL иконки
           />
         );

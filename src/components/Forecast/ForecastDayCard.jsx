@@ -6,12 +6,12 @@ const ForecastDayCard = ({ label, dayTemp, nightTemp, condition }) => {
 
   return (
     <li className="forecast-item">
-      {/* TITLE */}
+      {/* левая часть: День недели*/}
       <span className="day-label">{label}</span>
 
-      {/* CONDITION WRAPPER */}
+      {/* Центральная часть: Состояние (Иконка + Текст) */}
       <div className="condition-wrapper">
-        {/* img + text */}
+        {/* Правая часть: Температуры */}
         <img src={iconSrc} alt={condition} className="weather-icon"></img>
         <span className="condition-text">{condition}</span>
       </div>

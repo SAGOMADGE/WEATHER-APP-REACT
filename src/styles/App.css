@@ -10,10 +10,10 @@
      а на маленьких даем небольшие отступы от краев */
   max-width: 100%; /* На мобилке на всю ширину*/
   margin: 0 auto;
-  padding: var(--space-sm);
+  padding: var(--space-app);
 
   /* 4. ГЛАВНОЕ: Отступы между логическими блоками */
-  gap: var(--space-lg);
+  gap: var(--space-xl);
 
   /* 5. Фон и цвет текста из переменных */
   background-color: var(--color-bg);
