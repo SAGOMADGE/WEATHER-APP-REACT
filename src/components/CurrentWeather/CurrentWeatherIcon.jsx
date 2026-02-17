@@ -1,19 +1,7 @@
-import cloudsIcon from "../../icons/cloudy.svg";
-import sunIcon from "../../icons/sunny.svg";
-import rainIcon from "../../icons/rain.svg";
-import snowIcon from "../../icons/snow.svg";
-import mistIcon from "../../icons/mistIcon.svg";
-
-const iconMap = {
-  Clouds: cloudsIcon,
-  Clear: sunIcon,
-  Rain: rainIcon,
-  Snow: snowIcon,
-  Mist: mistIcon,
-};
+import { getWeatherIcon } from "../../utils/getWeatherIcon.js";
 
 const CurrentWeatherIcon = ({ condition }) => {
-  const IconSrc = iconMap[condition] || cloudsIcon;
+  const IconSrc = getWeatherIcon(condition);
 
   return (
     <div className="weather-icon-wrapper">

@@ -18,7 +18,7 @@ const formatForecastDate = (dateStr, lang) => {
 
 const Forecast = ({ forecast, t, lang }) => {
   return (
-    <section className="forecast-days">
+    <ul className="forecast-list">
       {forecast.map((day, index) => {
         const label =
           index === 0 ? t.forecast.today : formatForecastDate(day.date, lang);
@@ -29,11 +29,12 @@ const Forecast = ({ forecast, t, lang }) => {
             label={label}
             dayTemp={day.dayTemp}
             nightTemp={day.nightTemp}
-            humidity={day.humidity}
+            condition={day.condition} // Передаем состояние (Sunny/Cloudy)
+            icon={day.icon} // Передаем URL иконки
           />
         );
       })}
-    </section>
+    </ul>
   );
 };
 

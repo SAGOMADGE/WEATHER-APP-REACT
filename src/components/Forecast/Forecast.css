@@ -1,67 +1,55 @@
-.forecast {
-  display: flex;
-  flex-direction: column;
+.forecast-days {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--space-md);
   padding: var(--space-md);
   width: 100%;
-  margin-top: var(--space);
 }
 
-.forecast-days {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  width: 100%;
-  margin-top: var(--space);
+.forecast-card {
+  display: grid;
+  /* Делаем внутреннюю сетку карточки: Название. Температура. Влажность. */
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: var(--space-md);
+
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border-thin);
+  border-radius: var(--radius-md);
+  padding: var(--space-base) var(--space-md);
 }
 
 .forecast-title {
   text-align: center;
-  font-family: "Monseratt", sans-serif;
+  margin-top: var(--space-xl);
 }
 
-.forecast-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Распределяем данные по краям */
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  border: 1px solid var(--color-border-thin);
-  border-radius: var(--radius-md);
-  padding: var(--space-base) var(--space-md);
-  transition: transform 200ms ease;
-}
-
-/* Стили для Label (День недели) */
-.forecast-card p:first-child {
-  flex: 1;
-  font-family: "Montserrat", sans-serif;
+.forecast-label {
+  font-family: var(--ff-accent);
   font-weight: var(--fw-medium);
   color: var(--text-primary);
-  margin: 0;
 }
 
-.forecast-card p:not(:first-child) {
-  font-family: "Unit", sans-serif;
-  margin: 0;
-  padding-left: 15px;
-  min-width: 50px;
-  text-align: right;
+.forecast-temps {
+  display: flex;
+  gap: var(--space-sm);
+  min-width: 80px;
+  justify-content: flex-end;
 }
 
-.forecast-card p:nth-child(2) {
+.temp-day {
   color: var(--text-primary);
   font-weight: var(--fw-boldish);
 }
 
-.forecast-card p:nth-child(3) {
+.temp-nigth {
   color: var(--text-secondary);
 }
 
-.forecast-card p:last-child {
+.forecast-humidity {
   color: var(--text-humidity);
   font-size: var(--fs-sm);
+  min-width: 40px;
+  text-align: right;
 }
