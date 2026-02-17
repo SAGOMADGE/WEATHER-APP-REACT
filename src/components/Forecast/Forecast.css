@@ -46,12 +46,41 @@
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-sm);
   padding: 0 var(--space-sm);
 }
 
-.weather-icon {
+.weather-forecast__icon {
   width: 35px;
   height: 35px;
   object-fit: contain;
+}
+
+.condition-text {
+  font-style: var(--fs-sm);
+  font-weight: var(--fw-boldish);
+  color: var(--text-primary);
+}
+
+.temp-wrapper {
+  flex: 0 0 80px;
+  text-align: right;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-accent);
+}
+
+.high {
+  color: var(--text-primary);
+}
+
+.seperator {
+  color: var(--text-accent);
+  margin: 0 var(--space-xxxs);
+  font-weight: var(--fw-regular);
+}
+
+.low {
+  color: var(--text-secondary);
+  font-weight: var(--fw-regular);
 }

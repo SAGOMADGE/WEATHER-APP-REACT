@@ -12,7 +12,11 @@ const ForecastDayCard = ({ label, dayTemp, nightTemp, condition }) => {
       {/* Центральная часть: Состояние (Иконка + Текст) */}
       <div className="condition-wrapper">
         {/* Правая часть: Температуры */}
-        <img src={iconSrc} alt={condition} className="weather-icon"></img>
+        <img
+          src={iconSrc}
+          alt={condition}
+          className="weather-forecast__icon"
+        ></img>
         <span className="condition-text">{condition}</span>
       </div>
 

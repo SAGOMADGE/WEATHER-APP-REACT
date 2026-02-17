@@ -92,7 +92,8 @@ body {
   --color-border: #464648; /* разделители */
   --color-border-hover: #adadad;
 
-  --color-border-thin: rgba(255, 255, 255, 0.1);
+  --color-border-thin: rgba(113, 113, 121, 0.603);
+
   --color-surface-hover: #eeeded;
   --color-primary: #2563eb; /* основной управляющий цвет */
   --color-primary-hover: #1745c2;
