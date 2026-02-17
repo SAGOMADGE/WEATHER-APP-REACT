@@ -1,6 +1,6 @@
 .forecast {
   margin: var(--space-xl) 0;
-  padding: 0 var(--space-app);
+  padding: 0 var(--space-sm);
 }
 
 .forecast-title {
