@@ -1,6 +1,6 @@
 import { getWeatherIcon } from "../../utils/getWeatherIcon.js";
 
-const ForecastDayCard = ({ label, dayTemp, nightTemp, condition }) => {
+const ForecastDayCard = ({ label, dayTemp, nightTemp, condition, t }) => {
   // Получаем путь к SVG на основе текста состояния
   const iconSrc = getWeatherIcon(condition);
 
@@ -17,7 +17,9 @@ const ForecastDayCard = ({ label, dayTemp, nightTemp, condition }) => {
           alt={condition}
           className="weather-forecast__icon"
         ></img>
-        <span className="condition-text">{condition}</span>
+        <span className="condition-text">
+          {t?.current?.conditions?.[condition]}
+        </span>
       </div>
 
       {/* TEMP WRAPPER */}

@@ -31,6 +31,7 @@ const Forecast = ({ forecast, condition, t, lang }) => {
             nightTemp={day.nightTemp}
             condition={condition} // Передаем состояние (Sunny/Cloudy)
             icon={day.icon} // Передаем URL иконки
+            t={t}
           />
         );
       })}
