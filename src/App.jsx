@@ -46,7 +46,7 @@ const App = () => {
       try {
         // данные храним в переменной
         const { uiCurWeatherData, uiForecastWeeklyData } =
-          await getWeatherWithForecast(city);
+          await getWeatherWithForecast(city, lang);
 
         // текущая погода
         setWeather(uiCurWeatherData);

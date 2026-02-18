@@ -10,10 +10,10 @@ console.log("API KEY:", import.meta.env.VITE_WEATHER_API_KEY);
 //////////////////////////////////
 // Fetch function
 //////////////////////////////////
-export default async function getWeatherWithForecast(city) {
+export default async function getWeatherWithForecast(city, lang) {
   // res погоды на день
   const resCurWeather = await fetch(
-    `${URL_CUR_WEATHER}?q=${city}&appid=${API_KEY}&units=metric`,
+    `${URL_CUR_WEATHER}?q=${city}&appid=${API_KEY}&units=metric&lang=${lang}`,
   );
 
   if (!resCurWeather.ok) throw new Error("City not found");
