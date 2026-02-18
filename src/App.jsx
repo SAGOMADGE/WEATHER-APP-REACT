@@ -33,7 +33,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [lang, setLang] = useState("ru");
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   const t = translations[lang]; // если lang = ru, то t это обьект с значениями элементов страницы на русском языке
 
