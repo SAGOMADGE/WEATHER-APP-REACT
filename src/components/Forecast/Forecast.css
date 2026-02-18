@@ -93,3 +93,20 @@
   color: var(--text-secondary);
   font-weight: var(--fw-regular);
 }
+
+@media (max-width: 350px) {
+  .forecast-item {
+    display: grid;
+    grid-template-columns: 60px 1fr 60px;
+    column-gap: var(--space-xs);
+  }
+
+  .condition-wrapper {
+    gap: var(--space-xxs);
+  }
+
+  .condition-text {
+    width: 50px;
+    font-size: var(--fs-sm);
+  }
+}

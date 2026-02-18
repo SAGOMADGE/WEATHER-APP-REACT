@@ -69,6 +69,7 @@ body {
   --fs-xxl: 34px;
   --fs-3xl: 40px;
   --fs-unit: 50px;
+  --fs-small-screen-temp: 100px;
   --fs-temp: 120px;
 
   /* line-height*/
@@ -79,6 +80,8 @@ body {
 
   /* img width */
   --img-width: 140px;
+
+  --img-width-small-screen: 110px;
 
   /* font weight */
   --fw-regular: 400;

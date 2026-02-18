@@ -25,3 +25,10 @@
   /* Плавный переход для будущей смены тем */
   transition: background-color 300ms ease;
 }
+
+@media (max-width: 350px) {
+  .app {
+    padding: var(--space-xs) var(--space-sm);
+    gap: var(--space-sm);
+  }
+}

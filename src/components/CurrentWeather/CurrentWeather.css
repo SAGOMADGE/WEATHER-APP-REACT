@@ -78,3 +78,18 @@
   font-weight: var(--fw-accent);
   color: var(--text-primary);
 }
+
+@media (max-width: 350px) {
+  .weather-icon {
+    width: var(--img-width-small-screen);
+    height: var(--img-width-small-screen);
+  }
+
+  .current-weather__temp-value {
+    font-size: var(--fs-small-screen-temp);
+  }
+
+  .current-weather__temp-unit {
+    font-size: var(--fs-3xl);
+  }
+}

@@ -1,7 +1,7 @@
 .header-bar {
   display: grid; /* включаем гибкость */
   /* Три колонки: края по 20%, центр забирает максимум */
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
   padding: var(--space-sm) 0;
 }
@@ -22,7 +22,6 @@
 
 .header-right {
   justify-self: end;
-  flex-shrink: 0;
   width: auto;
   display: flex;
   padding-left: 4px;
@@ -76,6 +75,16 @@
 
 .lang-btn:active {
   transform: scale(0.97);
+}
+
+@media (max-width: 350px) {
+  .header-right {
+    display: flex;
+    margin-left: var(--space-sm);
+    gap: var(--space-xxxs);
+    padding: var(--space-xxs);
+    margin: 0 5px 0 0;
+  }
 }
 
 @media (max-width: 480px) {
