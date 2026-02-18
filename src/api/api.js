@@ -16,7 +16,13 @@ export default async function getWeatherWithForecast(city, lang) {
     `${URL_CUR_WEATHER}?q=${city}&appid=${API_KEY}&units=metric&lang=${lang}`,
   );
 
-  if (!resCurWeather.ok) throw new Error("City not found");
+  if (!resCurWeather.ok) {
+    // Создаем ошибку, но добавляем ей свойство code
+    const error = new Error("Weather fetching failed");
+    error.code =
+      resCurWeather.status === 404 ? "CITY_NOT_FOUND" : "NETWORK_ERROR";
+    throw error;
+  }
 
   // парсим res погоды на день
   const rawCurWeatherData = await resCurWeather.json();

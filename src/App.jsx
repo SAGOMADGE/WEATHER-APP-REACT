@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 // Components import
 import Header from "./components/Header/Header.jsx";
+import StatusMessage from "./components/StatusMessage.jsx";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
 import { translations } from "./i18n/translations.js";
 // Api import
@@ -30,7 +31,7 @@ const App = () => {
   const [city, setCity] = useState("Очамчира");
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
   const [error, setError] = useState(null);
   const [lang, setLang] = useState("ru");
   const [isDark, setIsDark] = useState(true);
@@ -41,7 +42,7 @@ const App = () => {
     if (!city) return;
 
     const loadWeather = async () => {
-      setLoading(true);
+      setisLoading(true);
       setError(null);
       try {
         // данные храним в переменной
@@ -53,20 +54,27 @@ const App = () => {
         // прогноз на неделю
         setForecast(uiForecastWeeklyData);
       } catch (err) {
-        setError(err.message);
+        // Мы поймали системную ошибку (err.message там "city not found")
         console.error(err);
+
+        // Проверяем наш кастомный код
+        if (err.code === "CITY_NOT_FOUND") {
+          setError(t.errors.notFound);
+        } else {
+          setError(t.errors.network);
+        }
       } finally {
         // конечный итог(исход не важен)
-        setLoading(false);
+        setisLoading(false);
       }
     };
 
     loadWeather(); // запускаем функцию
-  }, [city]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [city, lang]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // инструкция "реакту" для слежки изменений (dependencies array)
 
-  // UseEffect for dark theme
+  // UseEffect для черной темы
   useEffect(() => {
     if (isDark) {
       document.body.classList.add("dark-theme");
@@ -78,12 +86,7 @@ const App = () => {
   return (
     // jsx
     <div className="app">
-      {/* Loading or error states */}
-      {loading && <p>{t.ui.loading}</p>}
-      {error && <p style={{ color: "red" }}>{t.ui.error}</p>}
-
       {/* BLOCK 1: weather Header*/}
-
       <Header
         city={city} // город
         setCity={setCity} // смена города
@@ -94,44 +97,54 @@ const App = () => {
         t={t}
       />
 
-      {/* BLOCK 2. Current Weather */}
-
-      {weather && (
-        <CurrentWeather
-          city={weather.city}
-          country={weather.country}
-          temp={weather.temp}
-          feelsLike={weather.feelsLike}
-          condition={weather.condition}
-          icon={weather.condition}
-          t={t}
-        />
+      {/* 1.Если идет загрузка - показываем только статус загрузки (позже скелетон) */}
+      {isLoading && (
+        <StatusMessage type="loading" message={t.ui.loading} icon="⏳" t={t} />
       )}
 
-      {/* BLOCK 3: Addition stats*/}
-
-      {weather && (
-        <Stats
-          wind={weather.windSpeed}
-          pressure={weather.pressure}
-          humidity={weather.humidity}
-          visibility={weather.visibility}
-          dewPoint={weather.dewPoint}
-          uvIndex={forecast[0]?.uvIndex} // Берем uvIndex из первого дня
-          t={t}
-        />
+      {/* 2. Если есть ошибка - показываем статус ошибки */}
+      {error && !isLoading && (
+        <StatusMessage type="error" message={error} icon="⚠️" t={t} />
       )}
 
-      {/* BLOCK 4: Weekly forecast */}
+      {/* 3. Если нет ошибки и загрузки - показываем контент пользователю */}
+      {!isLoading && !error && weather && (
+        <>
+          <CurrentWeather
+            city={weather.city}
+            country={weather.country}
+            temp={weather.temp}
+            feelsLike={weather.feelsLike}
+            condition={weather.condition}
+            icon={weather.condition}
+            t={t}
+          />
 
-      {forecast.length > 0 && (
-        <div className="forecast">
-          <h2 className=" forecast-title">{t.forecast.weeklyForecast}</h2>
+          {/* BLOCK 3: Addition stats*/}
+
+          <Stats
+            wind={weather.windSpeed}
+            pressure={weather.pressure}
+            humidity={weather.humidity}
+            visibility={weather.visibility}
+            dewPoint={weather.dewPoint}
+            uvIndex={forecast[0]?.uvIndex} // Берем uvIndex из первого дня
+            t={t}
+          />
+
+          {/* BLOCK 4: Weekly forecast */}
+
           {forecast.length > 0 && (
-            <Forecast forecast={forecast} t={t} lang={lang} />
+            <div className="forecast">
+              <h2 className=" forecast-title">{t.forecast.weeklyForecast}</h2>
+
+              <Forecast forecast={forecast} t={t} lang={lang} />
+            </div>
           )}
-        </div>
+        </>
       )}
+
+      {/* BLOCK 2. Current Weather */}
     </div>
   );
 };
