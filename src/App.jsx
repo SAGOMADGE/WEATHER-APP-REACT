@@ -38,41 +38,38 @@ const App = () => {
 
   const t = translations[lang]; // если lang = ru, то t это обьект с значениями элементов страницы на русском языке
 
-  useEffect(() => {
+  const loadWeather = async () => {
     if (!city) return;
 
-    const loadWeather = async () => {
-      setisLoading(true);
-      setError(null);
-      try {
-        // данные храним в переменной
-        const { uiCurWeatherData, uiForecastWeeklyData } =
-          await getWeatherWithForecast(city, lang);
+    setisLoading(true);
+    setError(null);
+    try {
+      // данные храним в переменной
+      const { uiCurWeatherData, uiForecastWeeklyData } =
+        await getWeatherWithForecast(city, lang);
 
-        // текущая погода
-        setWeather(uiCurWeatherData);
-        // прогноз на неделю
-        setForecast(uiForecastWeeklyData);
-      } catch (err) {
-        // Мы поймали системную ошибку (err.message там "city not found")
-        console.error(err);
-
-        // Проверяем наш кастомный код
-        if (err.code === "CITY_NOT_FOUND") {
-          setError(t.errors.notFound);
-        } else {
-          setError(t.errors.network);
-        }
-      } finally {
-        // конечный итог(исход не важен)
-        setisLoading(false);
+      // текущая погода
+      setWeather(uiCurWeatherData);
+      // прогноз на неделю
+      setForecast(uiForecastWeeklyData);
+    } catch (err) {
+      // Мы поймали системную ошибку (err.message там "city not found")
+      console.error(err);
+      // Проверяем наш кастомный код
+      if (err.code === "CITY_NOT_FOUND") {
+        setError(t.errors.notFound);
+      } else {
+        setError(t.errors.network);
       }
-    };
+    } finally {
+      // конечный итог(исход не важен)
+      setisLoading(false);
+    }
+  };
 
-    loadWeather(); // запускаем функцию
-  }, [city, lang]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // инструкция "реакту" для слежки изменений (dependencies array)
+  useEffect(() => {
+    loadWeather();
+  }, [city, lang]);
 
   // UseEffect для черной темы
   useEffect(() => {
@@ -104,7 +101,13 @@ const App = () => {
 
       {/* 2. Если есть ошибка - показываем статус ошибки */}
       {error && !isLoading && (
-        <StatusMessage type="error" message={error} icon="⚠️" t={t} />
+        <StatusMessage
+          type="error"
+          message={error}
+          icon="⚠️"
+          t={t}
+          onRetry={loadWeather}
+        />
       )}
 
       {/* 3. Если нет ошибки и загрузки - показываем контент пользователю */}
