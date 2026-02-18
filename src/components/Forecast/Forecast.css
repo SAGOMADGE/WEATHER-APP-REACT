@@ -28,9 +28,9 @@
 
 /* Строка дня */
 .forecast-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 80px 1fr 80px;
   align-items: center;
-  justify-content: space-between;
   padding: var(--space-md) 0;
   border-bottom: 1px solid var(--color-border-thin);
 }
@@ -40,14 +40,13 @@
 }
 
 .day-label {
-  flex: 0 0 70px;
+  justify-self: start;
   font-size: var(--fs-sm);
   color: var(--text-secondary);
   font-weight: var(--fw-medium);
 }
 
 .condition-wrapper {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,22 +55,28 @@
 }
 
 .weather-forecast__icon {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
+  justify-self: start;
   object-fit: contain;
 }
 
 .condition-text {
-  font-style: var(--fs-sm);
+  width: 50px;
+  text-align: left;
+  font-size: var(--fs-sm);
   font-weight: var(--fw-boldish);
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .temp-wrapper {
-  flex: 0 0 80px;
+  justify-self: end;
   text-align: right;
+  min-width: 60px;
   font-size: var(--fs-md);
   font-weight: var(--fw-accent);
+  font-variant-numeric: tabular-nums; /* Чтобы цифры не «прыгали» при смене городов */
 }
 
 .high {
