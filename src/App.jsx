@@ -62,7 +62,9 @@ const App = () => {
     };
 
     loadWeather(); // запускаем функцию
-  }, [city]); // инструкция "реакту" для слежки изменений (dependencies array)
+  }, [city]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // инструкция "реакту" для слежки изменений (dependencies array)
 
   // UseEffect for dark theme
   useEffect(() => {
