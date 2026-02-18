@@ -27,7 +27,7 @@ App — это умный компонент (container component).
 // const DEFAULT_CITY = "Sukhumi"
 
 const App = () => {
-  const [city, setCity] = useState("Och'amch'ire");
+  const [city, setCity] = useState("Очамчира");
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -64,9 +64,18 @@ const App = () => {
     loadWeather(); // запускаем функцию
   }, [city]); // инструкция "реакту" для слежки изменений (dependencies array)
 
+  // UseEffect for dark theme
+  useEffect(() => {
+    if (isDark) {
+      document.body.classList.add("dark-theme");
+    } else {
+      document.body.classList.remove("dark-theme");
+    }
+  }, [isDark]);
+
   return (
     // jsx
-    <div className={`app ${isDark ? "dark-theme" : "light-theme"}`}>
+    <div className="app">
       {/* Loading or error states */}
       {loading && <p>{t.ui.loading}</p>}
       {error && <p style={{ color: "red" }}>{t.ui.error}</p>}

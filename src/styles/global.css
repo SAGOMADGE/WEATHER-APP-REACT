@@ -8,15 +8,6 @@ design tokens (CSS variables)
 ❌ не отвечает за внешний вид
 ✅ отвечает за предсказуемость*/
 
-#root {
-  display: flex;
-  flex-direction: column;
-}
-
-html {
-  overflow-x: hidden;
-}
-
 *,
 *::before,
 *::after {
@@ -25,8 +16,17 @@ html {
   padding: 0;
 }
 
-body {
+html {
+  height: -webkit-fill-available;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
   min-height: 100dvh;
+  margin: 0;
+  padding: 0;
   font-family: var(--ff-primary), "sans-serif";
   font-size: var(--fs-md);
   line-height: var(--lh-base);
@@ -34,7 +34,7 @@ body {
   background-color: var(--color-bg);
 }
 
-/* === ROOT VARIABLES === */
+/* === ROO VARIABLES === */
 :root {
   /* spacing */
   --space-xxxs: 2px;
