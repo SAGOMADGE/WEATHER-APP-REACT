@@ -18,6 +18,7 @@ const ForecastDayCard = ({ label, dayTemp, nightTemp, condition, t }) => {
           className="weather-forecast__icon"
         ></img>
         <span className="condition-text">
+          {/* optional chaining and fallback */}
           {t?.current?.conditions?.[condition] || condition}
         </span>
       </div>

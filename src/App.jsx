@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 // Components import
 import Header from "./components/Header/Header.jsx";
-import StatusMessage from "./components/StatusMessage.jsx";
+import StatusMessage from "./components/StatusMessage/StatusMessage.jsx";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
 import { translations } from "./i18n/translations.js";
 // Api import

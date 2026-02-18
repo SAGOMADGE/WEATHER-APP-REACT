@@ -1,0 +1,115 @@
+.status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: var(--shadow-lg);
+
+  /* Отступы и размеры */
+  margin: var(--space-2xl) auto;
+  padding: var(--space-xl) var(--space-lg);
+  width: calc(
+    100% - (var(--space-app) * 2)
+  ); /* ширина контейнера равна 100% ширины минус паддинги Всего приложения по бокам */
+  max-width: 340px;
+
+  /* Используем переменные темы */
+  background-color: var(--color-card-error);
+  border: 1px solid var(--color-error-border);
+  border-radius: var(--radius-lg);
+
+  text-align: center;
+
+  /* Плавное появление */
+  animation: statusFadeIn 300ms ease-out;
+}
+
+.dark-theme .status-container {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.status-icon {
+  font-size: var(--fs-unit);
+  margin-bottom: var(--space-md);
+  line-height: var(--line-sm);
+}
+
+/* Специфическая анимация для загрузки */
+.status-loading .status-icon {
+  animation: pulseRotate 2000ms ease-in-out;
+}
+
+/* Контентная часть */
+.status-title {
+  font-family: var(--ff-accent);
+  color: var(--text-error-title);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-boldish);
+  margin-bottom: var(--space-sm);
+}
+
+.status-text {
+  font-size: var(--fs-md);
+  color: var(--text-secondary);
+  line-height: var(--lh-base);
+}
+
+.retry-btn {
+  margin-top: var(--space-lg);
+  width: calc(100% - (var(--space-xl) * 2));
+  padding: var(--space-md) var(--space-lg);
+  max-width: 220px;
+
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  border: none;
+  box-shadow: var(--shadow-sm);
+
+  font-size: var(--fs-md);
+  font-weight: var(--fw-boldish);
+
+  transition-timing-function:
+    background-color 200ms ease,
+    transform 100ms ease-in;
+}
+
+.dark-theme .retry-btn {
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.retry-btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.retry-btn:active {
+  transform: scale(0.97);
+}
+
+@keyframes statusFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotate(10deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}

@@ -99,6 +99,11 @@ body,
   /* colors */
   --color-bg: #faf9f6; /* самый нижний слой */
   --color-surface: #f7f7f7; /*  карточки / панели */
+
+  --color-card-error: #fffafb; /* Очень бледный красный для светлой темы */
+  --color-error-border: #fecaca;
+  --text-error-title: #991b1b;
+
   --card-bg: #ffffff;
   --card-border: transparent;
   --color-border: #464648; /* разделители */
@@ -156,6 +161,10 @@ body,
   --text-accent: #c2d4d9;
 
   --text-humidity: #3498db;
+
+  --color-card-error: rgba(153, 27, 27, 0.1);
+  --color-error-border: rgba(248, 113, 113, 0.2);
+  --text-error-title: #fca5a5; /* Светло-коралловый для темного фона */
 }
 
 /* === GLOBAL STYLES FOR ELEMENTS */
