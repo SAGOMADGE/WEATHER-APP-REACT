@@ -13,7 +13,7 @@ export const translations = {
         Rain: "Дождь",
         Clear: "Ясно",
         Mist: "Туман",
-        Thunderstorm: "Гроза",
+        Storm: "Гроза",
       },
     },
 
@@ -56,7 +56,7 @@ export const translations = {
         Rain: "Rain",
         Clear: "Clear",
         Mist: "Mist",
-        Thunderstorm: "Thunderstorm",
+        Storm: "Storm",
       },
     },
 

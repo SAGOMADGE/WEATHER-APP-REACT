@@ -6,6 +6,10 @@
 .forecast-title {
   font-family: var(--ff-accent);
   font-weight: var(--fw-boldish);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xxs);
   color: var(--text-accent);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -75,7 +79,7 @@
 }
 
 .seperator {
-  color: var(--text-accent);
+  color: var(--text-muted);
   margin: 0 var(--space-xxxs);
   font-weight: var(--fw-regular);
 }

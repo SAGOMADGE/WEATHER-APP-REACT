@@ -115,12 +115,7 @@ const App = () => {
         <div className="forecast">
           <h2 className=" forecast-title">{t.forecast.weeklyForecast}</h2>
           {forecast.length > 0 && (
-            <Forecast
-              forecast={forecast}
-              condition={weather.condition}
-              t={t}
-              lang={lang}
-            />
+            <Forecast forecast={forecast} t={t} lang={lang} />
           )}
         </div>
       )}

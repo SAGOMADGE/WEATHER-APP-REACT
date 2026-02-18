@@ -1,8 +1,9 @@
 import cloudsIcon from "../icons/cloudy.svg";
 import sunIcon from "../icons/sunny.svg";
-import rainIcon from "../icons/rain.svg";
-import snowIcon from "../icons/snow.svg";
+import rainIcon from "../icons/rainIcon.svg";
+import snowIcon from "../icons/snowIcon.svg";
 import mistIcon from "../icons/mistIcon.svg";
+import stormIcon from "../icons/stormIcon.svg";
 
 export const iconMap = {
   Clouds: cloudsIcon,
@@ -12,6 +13,7 @@ export const iconMap = {
   Snow: snowIcon,
   Mist: mistIcon,
   Fog: mistIcon,
+  Storm: stormIcon,
 };
 
 export const getWeatherIcon = (condition) => {

@@ -1,66 +1,11 @@
+import interpretWmoCode from "../utils/interpretWmoCode.js";
+import mapForecastData from "../utils/mapForecastData.js";
+import mapCurrentWeather from "../utils/mapCurrentWeather.js";
+
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 const URL_CUR_WEATHER = "https://api.openweathermap.org/data/2.5/weather";
 
 console.log("API KEY:", import.meta.env.VITE_WEATHER_API_KEY);
-
-//////////////////////////////////
-// === Мапперы ==
-//////////////////////////////////
-
-// --- Маппер погоды на день
-const mapCurrentWeather = (rawCurWeatherData) => {
-  const temp = rawCurWeatherData.main.temp;
-  const humidity = rawCurWeatherData.main.humidity;
-
-  const mappedCurWeatherData = {
-    city: rawCurWeatherData.name,
-    // country: rawCurWeatherData.sys.country,
-
-    temp,
-    feelsLike: rawCurWeatherData.main.feels_like,
-    tempMin: rawCurWeatherData.main.temp_min,
-    tempMax: rawCurWeatherData.main.temp_max,
-
-    humidity,
-    pressure: rawCurWeatherData.main.pressure,
-
-    condition: rawCurWeatherData.weather[0].main,
-    description: rawCurWeatherData.weather[0].description,
-
-    windSpeed: rawCurWeatherData.wind.speed,
-    visibility: rawCurWeatherData.visibility, // в метрах;
-
-    dewPoint: +(temp - (100 - humidity) / 5).toFixed(1),
-  };
-
-  // есть ветер, давление, влажность, видимость и точка росы
-
-  return mappedCurWeatherData;
-};
-
-// --- Маппер погоды на неделю ---
-export const mapForecastData = (rawForecast) => {
-  const {
-    time,
-    temperature_2m_max,
-    temperature_2m_min,
-    relative_humidity_2m_max,
-    weathercode,
-    uv_index_max,
-  } = rawForecast.daily;
-
-  /* 👉 Один индекс = один день*/
-  const forecast = time.map((date, index) => ({
-    date, // "2026-02-10" <--
-    dayTemp: temperature_2m_max[index],
-    nightTemp: temperature_2m_min[index],
-    humidity: relative_humidity_2m_max[index],
-    weatherCode: weathercode[index], // потом можешь сопоставить с картинкой/иконкой
-    uvIndex: uv_index_max[index],
-  }));
-
-  return forecast;
-};
 
 //////////////////////////////////
 // Fetch function
@@ -101,7 +46,12 @@ export default async function getWeatherWithForecast(city) {
   }
 
   // филтруем данные для через маппер mapForecastData, который ожидает rawForecastWeeklyData
-  const uiForecastWeeklyData = mapForecastData(rawForecastWeeklyData);
+  const uiForecastWeeklyData = mapForecastData(
+    rawForecastWeeklyData,
+    interpretWmoCode,
+  );
+
+  console.log(uiForecastWeeklyData);
 
   // возвращаем ключи с ссылками на UI данные для страницы
   return {
