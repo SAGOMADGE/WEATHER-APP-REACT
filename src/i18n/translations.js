@@ -38,7 +38,12 @@ export const translations = {
 
     ui: {
       loading: "Загрузка...",
-      error: "Город не найден",
+    },
+
+    errors: {
+      notFound: "Город не найден. Проверьте правильность названия.",
+      network: "Проблемы с соединением. Проверьте подключение к интернету.",
+      generic: "Что-то пошло не так. Мы уже чиним!",
     },
   },
 
@@ -80,7 +85,12 @@ export const translations = {
 
     ui: {
       loading: "Loading...",
-      error: "City not found",
+    },
+
+    errors: {
+      notFound: "City not found. Please check the spelling.",
+      network: "Connetction problems. Check your internter connection.",
+      generic: "Something went wrong..We are working on that !",
     },
   },
 };
