@@ -24,8 +24,10 @@ App — это умный компонент (container component).
 Он думает.
 Остальные — отображают. */
 
+// const DEFAULT_CITY = "Sukhumi"
+
 const App = () => {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Sukhumi");
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(false);

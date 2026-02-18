@@ -18,7 +18,7 @@ const ForecastDayCard = ({ label, dayTemp, nightTemp, condition, t }) => {
           className="weather-forecast__icon"
         ></img>
         <span className="condition-text">
-          {t?.current?.conditions?.[condition]}
+          {t?.current?.conditions?.[condition] || condition}
         </span>
       </div>
 
