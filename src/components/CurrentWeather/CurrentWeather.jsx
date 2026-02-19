@@ -20,7 +20,7 @@ const CurrentWeather = ({
         <h2 className="current-weather__city">{city}</h2>
       </div>
 
-      {/* иконка и температура */}
+      {/* иконка и температура, иконка,  */}
       <div className="current-weather__main">
         <CurrentWeatherIcon
           icon={icon}

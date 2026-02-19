@@ -44,10 +44,13 @@
   margin: 0;
 }
 
-/* Планшетная и десктопная версия */
-/* @media (min-width: 768px) {
-  .weatherStats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+@media (min-width: 768px) {
+  .weather-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-grid);
+    max-width: 900px;
+
+    margin: 0 auto;
   }
-} */
+}

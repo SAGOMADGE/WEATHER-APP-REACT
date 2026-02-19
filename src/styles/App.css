@@ -10,7 +10,7 @@
      а на маленьких даем небольшие отступы от краев */
   max-width: 100%; /* На мобилке на всю ширину*/
   margin: 0 auto;
-  padding: var(--space-app);
+  padding: var(--space-md) var(--space-app);
 
   /* 4. ГЛАВНОЕ: Отступы между логическими блоками */
   gap: var(--space-xl);

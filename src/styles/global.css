@@ -167,6 +167,22 @@ body,
   --text-error-title: #fca5a5; /* Светло-коралловый для темного фона */
 }
 
+/* ======================== */
+/* === MEDIA QUERIES */
+/* ======================== */
+
+/* === TABLET & DESKTOP */
+@media (min-width: 768px) {
+  :root {
+    --space-app: var(--space-2xl); /* Увеличиваем общий отступ приложения */
+    --space-grid: var(--space-lg);
+    --space-md: 20px;
+
+    --fs-temp: 120px;
+    --fs-xxl: 40px;
+  }
+}
+
 /* === GLOBAL STYLES FOR ELEMENTS */
 button {
   font-family: inherit;
