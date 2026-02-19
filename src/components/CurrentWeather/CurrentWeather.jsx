@@ -10,6 +10,7 @@ const CurrentWeather = ({
   feelsLike,
   condition,
   icon,
+  isNight,
   t,
 }) => {
   return (
@@ -21,7 +22,11 @@ const CurrentWeather = ({
 
       {/* иконка и температура */}
       <div className="current-weather__main">
-        <CurrentWeatherIcon icon={icon} condition={condition} />
+        <CurrentWeatherIcon
+          icon={icon}
+          condition={condition}
+          isNight={isNight}
+        />
         <Temperature temp={temp} />
       </div>
 

@@ -27,6 +27,8 @@ export default async function getWeatherWithForecast(city, lang) {
   // парсим res погоды на день
   const rawCurWeatherData = await resCurWeather.json();
 
+  console.log(rawCurWeatherData);
+
   // получаем UI данные погоды на день через функцию mappedCurWeatherData которая ждет rawCurWeatherData
   const mappedCurWeatherData = mapCurrentWeather(rawCurWeatherData);
 

@@ -1,7 +1,7 @@
 .header-bar {
   display: grid; /* включаем гибкость */
   /* Три колонки: края по 20%, центр забирает максимум */
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   padding: var(--space-sm) 0;
 }
@@ -29,7 +29,9 @@
 }
 
 .search-container {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {

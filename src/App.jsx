@@ -120,6 +120,7 @@ const App = () => {
             feelsLike={weather.feelsLike}
             condition={weather.condition}
             icon={weather.condition}
+            isNight={weather.isNight}
             t={t}
           />
 
@@ -146,8 +147,6 @@ const App = () => {
           )}
         </>
       )}
-
-      {/* BLOCK 2. Current Weather */}
     </div>
   );
 };
