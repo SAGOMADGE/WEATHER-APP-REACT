@@ -21,12 +21,8 @@ const SearchBar = ({ city, setCity, t }) => {
   // функция сабмита
   const handleSubmit = () => {
     setTouched(true);
-
-    const trimmedValue = inputValue.trim();
-
-    if (trimmedValue.toLowerCase() === city.toLowerCase()) return;
-    if (!isValid || !trimmedValue) return;
-    setCity(trimmedValue);
+    if (!isValid || !inputValue.trim()) return;
+    setCity(inputValue.trim());
   };
 
   // переменная валидности
