@@ -25,13 +25,11 @@ App — это умный компонент (container component).
 Он думает.
 Остальные — отображают. */
 
-// const DEFAULT_CITY = "Sukhumi"
-
 const App = () => {
   const [city, setCity] = useState("Очамчира");
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState([]);
-  const [isLoading, setisLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [lang, setLang] = useState("ru");
   const [isDark, setIsDark] = useState(true);
@@ -41,7 +39,7 @@ const App = () => {
   const loadWeather = async () => {
     if (!city) return;
 
-    setisLoading(true);
+    setIsLoading(true);
     setError(null);
     try {
       // данные храним в переменной
@@ -63,7 +61,7 @@ const App = () => {
       }
     } finally {
       // конечный итог(исход не важен)
-      setisLoading(false);
+      setIsLoading(false);
     }
   };
 

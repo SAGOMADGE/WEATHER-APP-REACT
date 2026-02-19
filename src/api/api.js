@@ -15,7 +15,7 @@ export default async function getWeatherWithForecast(city, lang) {
   const resCurWeather = await fetch(
     `${URL_CUR_WEATHER}?q=${city}&appid=${API_KEY}&units=metric&lang=${lang}`,
   );
-
+  п;
   if (!resCurWeather.ok) {
     // Создаем ошибку, но добавляем ей свойство code
     const error = new Error("Weather fetching failed");
