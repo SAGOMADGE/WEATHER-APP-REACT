@@ -178,8 +178,25 @@ body,
     --space-grid: var(--space-lg);
     --space-md: 20px;
 
+    /* 2. Шрифты - масштабируем иерархию */
+
+    --fs-xs: 14px;
+    --fs-sm: 20px;
+    --fs-md: 24px;
+    --fs-lg: 30px;
+    --fs-xl: 40px;
+    --fs-xxl: 48px;
+    --fs-3xl: 60px;
+    --fs-unit: 60px;
+    --fs-small-screen-temp: 100px;
     --fs-temp: 120px;
-    --fs-xxl: 40px;
+
+    /* 3. Иконки и градусы */
+    --img-width: 160px;
+    --radius-md: 24px;
+
+    /* 4. Контейнер */
+    --app-max-width: 900px;
   }
 }
 

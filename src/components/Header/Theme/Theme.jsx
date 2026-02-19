@@ -21,8 +21,6 @@ const Theme = ({ isDark, setIsDark }) => {
         // Иконка Луны
         <svg
           className="moon-icon"
-          width="20"
-          height="20"
           viewBox="0 0 24 24"
           stroke="orange"
           strokeWidth="2"
