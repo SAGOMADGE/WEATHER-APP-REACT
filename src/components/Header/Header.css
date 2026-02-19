@@ -3,7 +3,6 @@
   /* Три колонки: края по 20%, центр забирает максимум */
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  padding: var(--space-sm) 0;
 }
 
 .header-left {
