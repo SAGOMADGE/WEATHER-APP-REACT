@@ -120,6 +120,13 @@
     margin: 0 auto;
   }
 
+  .weather-forecast__icon {
+    width: 45px;
+    height: 45px;
+    justify-self: start;
+    object-fit: contain;
+  }
+
   .forecast-item {
     grid-template-columns: 100px 1fr 100px;
     padding: var(--space-md) var(--space-lg);
