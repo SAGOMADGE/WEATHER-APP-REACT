@@ -8,7 +8,7 @@
 .current-weather__main {
   display: flex;
   align-items: center; /* Центрировка иконки и текста по вертикали */
-  gap: var(--space-xl);
+  gap: var(--space-3xl);
 }
 
 .weather-icon {

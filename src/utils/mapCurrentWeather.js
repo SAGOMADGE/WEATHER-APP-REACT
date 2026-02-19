@@ -24,7 +24,7 @@ const mapCurrentWeather = (rawCurWeatherData) => {
     dewPoint: +(temp - (100 - humidity) / 5).toFixed(1),
 
     isNight:
-      rawCurWeatherData.dr < rawCurWeatherData.sys.sunrise ||
+      rawCurWeatherData.dt < rawCurWeatherData.sys.sunrise ||
       rawCurWeatherData.dt > rawCurWeatherData.sys.sunset,
   };
   return mappedCurWeatherData;
