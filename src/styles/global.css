@@ -65,6 +65,7 @@ body,
   --fs-sm: 14px;
   --fs-md: 16px;
   --fs-lg: 20px;
+  --fs-logo: 20px;
   --fs-xl: 24px;
   --fs-xxl: 34px;
   --fs-3xl: 40px;
@@ -172,6 +173,24 @@ body,
 /* ======================== */
 
 /* === TABLET & DESKTOP */
+@media (min-width: 575px) {
+  :root {
+    --space-app: var(--space-xl);
+
+    --fs-xs: 14px;
+    --fs-sm: 20px;
+    --fs-md: 24px;
+    --fs-lg: 30px;
+    --fs-logo: 25px;
+    --fs-xl: 40px;
+    --fs-xxl: 48px;
+    --fs-3xl: 60px;
+    --fs-unit: 60px;
+    --fs-small-screen-temp: 100px;
+    --fs-temp: 120px;
+  }
+}
+
 @media (min-width: 768px) {
   :root {
     --space-app: var(--space-2xl); /* Увеличиваем общий отступ приложения */
@@ -181,21 +200,27 @@ body,
     /* 2. Шрифты - масштабируем иерархию */
 
     --fs-xs: 14px;
-    --fs-sm: 20px;
-    --fs-md: 24px;
+    --fs-sm: 22px;
+    --fs-md: 26px;
     --fs-lg: 30px;
+    --fs-logo: 30px;
     --fs-xl: 40px;
     --fs-xxl: 48px;
     --fs-3xl: 60px;
     --fs-unit: 60px;
     --fs-small-screen-temp: 100px;
-    --fs-temp: 120px;
+    --fs-temp: 180px;
 
     /* 3. Иконки и градусы */
-    --img-width: 160px;
+    --img-width: 150px;
     --radius-md: 24px;
 
-    /* 4. Контейнер */
+    /* 4. Отступы */
+    --space-base: 16px;
+    --space-md: 24px;
+    --space-xl: 50px;
+
+    /* 5. Контейнер */
     --app-max-width: 900px;
   }
 }

@@ -24,7 +24,7 @@ const SearchBar = ({ city, setCity, t }) => {
 
     const trimmedValue = inputValue.trim();
 
-    if (trimmedValue.toLowercase() === city.toLowerCase()) return;
+    if (trimmedValue.toLowerCase() === city.toLowerCase()) return;
     if (!isValid || !trimmedValue) return;
     setCity(trimmedValue);
   };

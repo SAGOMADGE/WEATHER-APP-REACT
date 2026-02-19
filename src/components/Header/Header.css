@@ -35,7 +35,7 @@
 
 .logo {
   font-weight: var(--fw-bold);
-  font-size: var(--fs-lg);
+  font-size: var(--fs-logo);
   letter-spacing: -0.02;
   color: var(--text-primary);
   text-decoration: none;
@@ -97,5 +97,11 @@
 @media (max-width: 480px) {
   .logo-extra {
     display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .lang-btn {
+    padding: 22px 28px;
   }
 }

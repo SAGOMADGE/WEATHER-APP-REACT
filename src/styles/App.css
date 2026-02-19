@@ -25,13 +25,14 @@
 
 @media (min-width: 768px) {
   .app {
-    padding: var(--space-md) var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    gap: var(--space-xl);
   }
-}
 
-@media (max-width: 350px) {
-  .app {
-    padding: var(--space-xs) var(--space-sm);
-    gap: var(--space-sm);
+  @media (max-width: 350px) {
+    .app {
+      padding: var(--space-xs) var(--space-sm);
+      gap: var(--space-sm);
+    }
   }
 }

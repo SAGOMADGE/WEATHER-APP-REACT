@@ -114,6 +114,15 @@
 /* ======================== */
 /* === MEDIA QUERIES */
 /* ======================== */
+@media (min-width: 575px) {
+  .weather-forecast__icon {
+    width: 40px;
+    height: 40px;
+    justify-self: start;
+    object-fit: contain;
+  }
+}
+
 @media (min-width: 768px) {
   .forecast-list {
     max-width: 900px;
