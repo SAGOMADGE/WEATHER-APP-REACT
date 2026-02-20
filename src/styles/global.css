@@ -44,7 +44,7 @@ body,
   --space-base: 12px;
   --space-title: 40px;
   --space-md: 16px;
-  --space-input: 16px;
+  --space-input: 10px;
 
   --space-app: 20px;
   --space-lg: 24px;
@@ -187,16 +187,23 @@ body,
     --space-app: var(--space-xl);
 
     --fs-xs: 14px;
-    --fs-sm: 20px;
+    --fs-sm: 24px;
     --fs-md: 24px;
+    --fs-error: 24px;
     --fs-lg: 30px;
     --fs-logo: 25px;
     --fs-xl: 40px;
     --fs-xxl: 48px;
-    --fs-3xl: 60px;
+    --fs-3xl: 60spx;
     --fs-unit: 60px;
     --fs-small-screen-temp: 100px;
-    --fs-temp: 120px;
+    --fs-temp: 180px;
+
+    --img-width: 140px;
+
+    --space-input: 16px;
+
+    --space-3xl: 80px;
   }
 }
 
@@ -208,37 +215,40 @@ body,
 
     /* 2. Шрифты - масштабируем иерархию */
 
-    --fs-xs: 14px;
-    --fs-sm: 22px;
+    --fs-xs: 18px;
+    --fs-sm: 26px;
     --fs-md: 26px;
-    --fs-input: 26px;
+    --fs-input: 30px;
 
     --fs-temp-forecast: 26px;
     --fs-label-forecast: 26px;
 
     --fs-lg: 30px;
     --fs-logo: 30px;
+    --fs-error: 30px;
     --fs-xl: 40px;
     --fs-title-forecast: 40px;
     --fs-xxl: 48px;
     --fs-3xl: 60px;
     --fs-unit: 60px;
     --fs-small-screen-temp: 100px;
-    --fs-temp: 180px;
+    --fs-temp: 200px;
 
     /* 3. Иконки и градусы */
-    --img-width: 150px;
+    --img-width: 170px;
     --radius-md: 24px;
 
     /* 4. Отступы */
     --space-base: 16px;
-    --space-input: 18px;
+    --space-input: 16px;
 
     --space-title: 60px;
 
     --space-md: 24px;
 
     --space-xl: 50px;
+
+    --space-3xl: 100px;
 
     /* 5. Контейнер */
     --app-max-width: 900px;
@@ -249,7 +259,7 @@ body,
   :root {
     --fs-xs: 15px;
 
-    --fs-input: 26px;
+    --fs-input: 34px;
 
     --fs-sm: 30px;
 
@@ -257,6 +267,10 @@ body,
     --fs-label-forecast: 28px;
 
     --fs-logo: 40px;
+
+    --fs-error: 50px;
+
+    --fs-unit: 100px;
 
     --fs-md: 50px;
 

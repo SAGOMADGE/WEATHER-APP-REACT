@@ -5,8 +5,6 @@ import mapCurrentWeather from "../utils/mapCurrentWeather.js";
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 const URL_CUR_WEATHER = "https://api.openweathermap.org/data/2.5/weather";
 
-console.log("API KEY:", import.meta.env.VITE_WEATHER_API_KEY);
-
 //////////////////////////////////
 // Fetch function
 //////////////////////////////////
@@ -26,8 +24,6 @@ export default async function getWeatherWithForecast(city, lang) {
 
   // парсим res погоды на день
   const rawCurWeatherData = await resCurWeather.json();
-
-  console.log(rawCurWeatherData);
 
   // получаем UI данные погоды на день через функцию mappedCurWeatherData которая ждет rawCurWeatherData
   const mappedCurWeatherData = mapCurrentWeather(rawCurWeatherData);
@@ -58,8 +54,6 @@ export default async function getWeatherWithForecast(city, lang) {
     rawForecastWeeklyData,
     interpretWmoCode,
   );
-
-  console.log(uiForecastWeeklyData);
 
   // возвращаем ключи с ссылками на UI данные для страницы
   return {

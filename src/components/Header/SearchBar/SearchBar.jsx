@@ -10,9 +10,6 @@ const SearchBar = ({ city, setCity, t }) => {
   const [inputValue, setInputValueLocal] = useState(city ?? "");
   const [touched, setTouched] = useState(false); // состояние которое информирует, ушел ли пользователь с поля
 
-  console.log("city:", city);
-  console.log("inputValue:", inputValue);
-
   // синхронизация city и inputValue
   useEffect(() => {
     setInputValueLocal(city ?? "");

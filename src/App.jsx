@@ -52,7 +52,9 @@ const App = () => {
       setForecast(uiForecastWeeklyData);
     } catch (err) {
       // Мы поймали системную ошибку (err.message там "city not found")
-      console.error(err);
+      if (import.meta.env.DEV) {
+        console.error(err);
+      }
       // Проверяем наш кастомный код
       if (err.code === "CITY_NOT_FOUND") {
         setError(t.errors.notFound);
