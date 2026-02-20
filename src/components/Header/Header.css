@@ -3,13 +3,13 @@
   /* Три колонки: края по 20%, центр забирает максимум */
   grid-template-columns: auto 1fr auto;
   align-items: center;
+  max-width: 1000px;
 }
 
 .header-left {
   justify-self: start;
   flex-shrink: 0;
   width: auto;
-  padding-right: 4px;
   gap: var(--space-sm);
 }
 
@@ -23,7 +23,6 @@
   justify-self: end;
   width: auto;
   display: flex;
-  padding-left: 4px;
   gap: var(--space-sm);
 }
 
@@ -103,5 +102,11 @@
 @media (min-width: 768px) {
   .lang-btn {
     padding: 22px 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lang-btn {
+    padding: 30px 40px;
   }
 }

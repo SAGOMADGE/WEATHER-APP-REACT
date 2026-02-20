@@ -52,6 +52,7 @@
   font-weight: var(--fw-medium);
   color: var(--text-primary);
   text-transform: capitalize;
+  font-size: var(--fs-sm);
 }
 
 .current-weather__feels-like {
@@ -59,7 +60,7 @@
   justify-content: center;
   align-items: center; /* выравнивание иконки и текста по одной горизонтальной линии */
   gap: var(--space-xxs); /* небольшой зазор, чтобы не слипались */
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   color: var(--text-secondary);
 }
 
@@ -90,5 +91,12 @@
 
   .current-weather__temp-unit {
     font-size: var(--fs-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .current-weather__main {
+    display: flex;
+    gap: var(--space-3xl);
   }
 }

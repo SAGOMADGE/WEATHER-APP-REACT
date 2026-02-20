@@ -42,7 +42,10 @@ body,
   --space-xs: 6px;
   --space-sm: 10px;
   --space-base: 12px;
+  --space-title: 40px;
   --space-md: 16px;
+  --space-input: 16px;
+
   --space-app: 20px;
   --space-lg: 24px;
   --space-xl: 32px;
@@ -64,9 +67,15 @@ body,
   --fs-xs: 12px;
   --fs-sm: 14px;
   --fs-md: 16px;
+  --fs-temp-forecast: 20px;
+  --fs-label-forecast: 20px;
+  --fs-input: 16px;
+
   --fs-lg: 20px;
   --fs-logo: 20px;
   --fs-xl: 24px;
+  --fs-title-forecast: 24px;
+
   --fs-xxl: 34px;
   --fs-3xl: 40px;
   --fs-unit: 50px;
@@ -202,9 +211,15 @@ body,
     --fs-xs: 14px;
     --fs-sm: 22px;
     --fs-md: 26px;
+    --fs-input: 26px;
+
+    --fs-temp-forecast: 26px;
+    --fs-label-forecast: 26px;
+
     --fs-lg: 30px;
     --fs-logo: 30px;
     --fs-xl: 40px;
+    --fs-title-forecast: 40px;
     --fs-xxl: 48px;
     --fs-3xl: 60px;
     --fs-unit: 60px;
@@ -217,11 +232,47 @@ body,
 
     /* 4. Отступы */
     --space-base: 16px;
+    --space-input: 18px;
+
+    --space-title: 60px;
+
     --space-md: 24px;
+
     --space-xl: 50px;
 
     /* 5. Контейнер */
     --app-max-width: 900px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --fs-xs: 15px;
+
+    --fs-input: 26px;
+
+    --fs-sm: 30px;
+
+    --fs-temp-forecast: 28px;
+    --fs-label-forecast: 28px;
+
+    --fs-logo: 40px;
+
+    --fs-md: 50px;
+
+    --fs-xxl: 80px;
+
+    --img-width: 250px;
+
+    --fs-temp: 250px;
+
+    /* spaces */
+
+    --space-md: 30px;
+
+    --space-3xl: 200px;
+
+    --space-base: 80px;
   }
 }
 

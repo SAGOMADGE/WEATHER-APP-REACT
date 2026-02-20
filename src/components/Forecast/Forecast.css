@@ -5,6 +5,7 @@
 .forecast-title {
   font-family: var(--ff-accent);
   font-weight: var(--fw-boldish);
+  font-size: var(--fs-title-forecast);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +14,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
-  margin-bottom: var(--space-base);
+  margin-bottom: var(--space-title);
 }
 
 /* Список */
@@ -41,7 +42,7 @@
 
 .day-label {
   justify-self: start;
-  font-size: var(--fs-sm);
+  font-size: var(--fs-label-forecast);
   color: var(--text-secondary);
   font-weight: var(--fw-medium);
 }
@@ -64,7 +65,7 @@
 .condition-text {
   width: 50px;
   text-align: left;
-  font-size: var(--fs-sm);
+  font-size: var(--fs-label-forecast);
   font-weight: var(--fw-boldish);
   color: var(--text-primary);
   white-space: nowrap;
@@ -74,7 +75,7 @@
   justify-self: end;
   text-align: right;
   min-width: 60px;
-  font-size: var(--fs-md);
+  font-size: var(--fs-temp-forecast);
   font-weight: var(--fw-accent);
   font-variant-numeric: tabular-nums; /* Чтобы цифры не «прыгали» при смене городов */
 }
@@ -144,5 +145,11 @@
   .condition-wrapper {
     justify-content: center;
     gap: var(--space-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .forecast-item {
+    grid-template-columns: 120px 1fr 120px;
   }
 }

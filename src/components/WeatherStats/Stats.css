@@ -13,13 +13,17 @@
 
   border: 1px solid var(--color-border-dark-theme-thin);
   border-radius: var(--radius-md);
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
   transition:
     transform 200ms ease,
     background 200ms ease;
+}
+
+.card > p {
+  white-space: nowrap;
 }
 
 .card:active {
@@ -52,5 +56,12 @@
     max-width: 900px;
 
     margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .weather-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
   }
 }

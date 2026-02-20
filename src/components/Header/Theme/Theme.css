@@ -54,3 +54,9 @@
     padding: 28px 28px;
   }
 }
+
+@media (min-width: 1024px) {
+  .theme-btn {
+    padding: 30px 40px;
+  }
+}

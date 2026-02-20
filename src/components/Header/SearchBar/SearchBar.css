@@ -43,9 +43,9 @@
   min-width: 0;
   width: 100%;
   border: none; /* Убираем стандартные рамки */
-  padding: var(--space-base) var(--space-md);
+  padding: var(--space-input) var(--space-sm);
   padding-left: 1.5rem;
-  font-size: var(--fs-md);
+  font-size: var(--fs-input);
   outline: none; /* фокус выше уже сделан */
   background: transparent;
   color: var(--text-primary);
@@ -60,7 +60,6 @@
 .search-submit-btn {
   background-color: var(--color-primary);
   flex-shrink: 0;
-  width: 43px;
   display: flex;
   justify-content: center;
   align-items: center;
