@@ -10,7 +10,7 @@ export const iconMap = {
   Clouds: cloudsIcon,
   Clear: sunIcon,
   Rain: rainIcon,
-  Drizzle: rainIcon, // Добавь маппинг для похожих состояний
+  Drizzle: rainIcon,
   Snow: snowIcon,
   Mist: mistIcon,
   Fog: mistIcon,

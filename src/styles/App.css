@@ -1,25 +1,19 @@
 .app {
-  /*1. Создаем контекст Flexbox */
   display: flex;
   flex-direction: column;
 
   min-height: 100vh;
   min-height: 100dvh;
 
-  /* 3. Центрируем контейнер на больших экранах, 
-     а на маленьких даем небольшие отступы от краев */
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--space-md) var(--space-app);
 
-  /* 4. ГЛАВНОЕ: Отступы между логическими блоками */
   gap: var(--space-xl);
 
-  /* 5. Фон и цвет текста из переменных */
   background-color: var(--color-bg);
   color: var(--text-primary);
 
-  /* Плавный переход для будущей смены тем */
   transition: background-color 300ms ease;
 }
 

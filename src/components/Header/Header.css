@@ -1,6 +1,5 @@
 .header-bar {
-  display: grid; /* включаем гибкость */
-  /* Три колонки: края по 20%, центр забирает максимум */
+  display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   max-width: 1000px;

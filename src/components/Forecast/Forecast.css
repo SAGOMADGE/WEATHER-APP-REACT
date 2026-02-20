@@ -26,7 +26,6 @@
   border: 1px solid var(--color-border-thin);
 }
 
-/* Строка дня */
 .forecast-item {
   display: grid;
   grid-template-columns: 80px 1fr 80px;

@@ -6,22 +6,17 @@
 
   box-shadow: var(--shadow-lg);
 
-  /* Отступы и размеры */
   margin: var(--space-2xl) auto;
   padding: var(--space-xl) var(--space-lg);
-  width: calc(
-    100% - (var(--space-app) * 2)
-  ); /* ширина контейнера равна 100% ширины минус паддинги Всего приложения по бокам */
+  width: calc(100% - (var(--space-app) * 2));
   max-width: 800px;
 
-  /* Используем переменные темы */
   background-color: var(--color-card-error);
   border: 1px solid var(--color-error-border);
   border-radius: var(--radius-lg);
 
   text-align: center;
 
-  /* Плавное появление */
   animation: statusFadeIn 300ms ease-out;
 }
 
@@ -36,12 +31,10 @@
   line-height: var(--line-sm);
 }
 
-/* Специфическая анимация для загрузки */
 .status-loading .status-icon {
   animation: pulseRotate 2000ms ease-in-out;
 }
 
-/* Контентная часть */
 .status-title {
   font-family: var(--ff-accent);
   color: var(--text-error-title);

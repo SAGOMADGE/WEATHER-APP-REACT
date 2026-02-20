@@ -29,8 +29,8 @@ const Forecast = ({ forecast, t, lang }) => {
             label={label}
             dayTemp={day.dayTemp}
             nightTemp={day.nightTemp}
-            condition={day.condition} // Передаем состояние (Sunny/Cloudy)
-            icon={day.icon} // Передаем URL иконки
+            condition={day.condition}
+            icon={day.icon}
             t={t}
           />
         );

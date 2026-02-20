@@ -1,13 +1,13 @@
 .current-weather {
   display: flex;
   flex-direction: column;
-  align-items: center; /* центрируем все по горизонтали */
-  gap: var(--space-sm); /* Отступы между блоками (город/иконка/детали) */
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 .current-weather__main {
   display: flex;
-  align-items: center; /* Центрировка иконки и текста по вертикали */
+  align-items: center;
   gap: var(--space-3xl);
 }
 
@@ -16,7 +16,6 @@
   height: var(--img-width);
 }
 
-/* Стилизация шрифтов */
 .current-weather__city {
   font-size: var(--fs-xxl);
   font-family: var(--ff-accent), "sans-serif";
@@ -25,7 +24,7 @@
 }
 
 .current-weather__temp-value {
-  font-size: var(--fs-temp); /* акцент на главном */
+  font-size: var(--fs-temp);
   font-weight: var(--fw-md);
   line-height: var(--ln-sm);
 }
@@ -43,7 +42,7 @@
   align-items: center;
   gap: var(--space-xxs);
   text-align: center;
-  opacity: 0.8; /* Делаем описание чуть мягче */
+  opacity: 0.8;
   font-size: var(--fs-lg);
   color: rgb(50, 49, 57);
 }
@@ -58,8 +57,8 @@
 .current-weather__feels-like {
   display: flex;
   justify-content: center;
-  align-items: center; /* выравнивание иконки и текста по одной горизонтальной линии */
-  gap: var(--space-xxs); /* небольшой зазор, чтобы не слипались */
+  align-items: center;
+  gap: var(--space-xxs);
   font-size: var(--fs-sm);
   color: var(--text-secondary);
 }
@@ -70,7 +69,6 @@
 
   color: var(--color-temp-icon);
 
-  /* Lucide иконки управляются через stroke */
   stroke-width: 2px;
 }
 

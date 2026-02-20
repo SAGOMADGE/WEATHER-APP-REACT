@@ -1,20 +1,20 @@
 .search-container {
-  flex: 1; /* Говорим поиску: "забери все свободное место" */
+  flex: 1;
   display: flex;
-  flex-direction: column; /* Инпут сверху, ошибка снизу */
-  position: relative; /* Точка отсчета для абсолютной ошибки */
+  flex-direction: column;
+  position: relative;
   max-width: 500px;
   width: 100%;
 }
 
 .error-message {
   position: absolute;
-  top: 100%; /* максимально вниз от родителя*/
-  left: var(--space-md); /* от левого края в права на 16px */
+  top: 100%;
+  left: var(--space-md);
   color: var(--color-error);
   font-size: var(--fs-sm);
   margin-top: var(--space-xs);
-  white-space: nowrap; /* без переноса на новую строку */
+  white-space: nowrap;
 }
 
 .search-container {
@@ -22,12 +22,12 @@
 }
 
 .input-wrapper {
-  display: flex; /* Инпут и кнопка "Поиск" в одну линию */
+  display: flex;
   width: 90%;
   background-color: var(--color-surface);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  border: 1px solid rgba(0, 0, 0, 0.1); /* заготовка под focus-effect */
+  border: 1px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
 
   transition: border-color 300ms;
@@ -39,14 +39,14 @@
 }
 
 #input-search {
-  flex: 1; /* инпут тянется внутри капсулы */
+  flex: 1;
   min-width: 0;
   width: 100%;
-  border: none; /* Убираем стандартные рамки */
+  border: none;
   padding: var(--space-input) var(--space-sm);
   padding-left: 1.5rem;
   font-size: var(--fs-input);
-  outline: none; /* фокус выше уже сделан */
+  outline: none;
   background: transparent;
   color: var(--text-primary);
 
