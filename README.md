@@ -1,16 +1,43 @@
-# React + Vite
+# SagoWeather — Adaptive Weather Dashboard (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Современное погодное приложение, сфокусированное на чистоте кода, масштабируемости и адаптивном UX. Проект выполнен в рамках перехода к квалификации Strong Junior+.
 
-Currently, two official plugins are available:
+## 🚀 Стек технологий
+* **Core:** React 18 (Hooks)
+* **Build Tool:** Vite
+* **Styling:** CSS3 (Custom Properties, Grid Layout, BEM-naming)
+* **API:** OpenWeatherMap, OpenMeteo
+* **Formatting:** Intl.DateTimeFormat API (локализация дат)
+* **Icons:** SVG + Lucide-React
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Ключевые инженерные решения
 
-## React Compiler
+### 1. Архитектурный подход (Smart & Dumb Components)
+Приложение разделено на "контейнер" (`App.jsx`), владеющий состоянием и логикой запросов, и презентационные компоненты. Это обеспечивает:
+* Четкий поток данных (Unidirectional data flow).
+* Легкость тестирования и поддержки UI-частей.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. Масштабируемая интернационализация (i18n)
+Вместо жестко прописанного текста использована структура словарей. Поддерживается смена языка (RU/EN) и темная тема. Переводы изолированы в `translations.js`.
 
-## Expanding the ESLint configuration
+### 3. Адаптивная дизайн-система
+Вместо хаотичных медиа-запросов внедрена система CSS-токенов (`:root`). 
+* **Fluid Layout:** Интерфейс плавно адаптируется под Mobile (320px+), Tablet (575px - 768px) и Desktop (1024px+).
+* **Grid Logic:** Использование `grid-template-areas` для сложной перестройки блоков на планшетных версиях.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 4. Робастная обработка ошибок
+Реализован кастомный обработчик ошибок API. Приложение различает типы сбоев (неверный город, проблемы с сетью) и выдает пользователю валидный фидбек через компонент `StatusMessage`.
+
+## 📈 Челленджи и опыт
+В ходе разработки я столкнулся и успешно справился со следующими задачами:
+* **Race Conditions:** Обработка состояний загрузки (loading state) для предотвращения артефактов при быстрых запросах.
+* **SVG Optimization:** Динамическая смена иконок в зависимости от погодных условий и времени суток.
+* **Layout Shifts:** Минимизация прыжков контента при смене стейтов.
+
+## 🎯 Вектор развития (Roadmap)
+* [ ] Внедрение Skeleton Screens для еще более плавного UX.
+* [ ] Кэширование данных в LocalStorage для минимизации лишних API-вызовов.
+* [ ] Интеграция с Google Places API для автодополнения городов.
+
+---
+**Разработано в рамках подготовки к Strong Junior+**
