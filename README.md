@@ -1,5 +1,7 @@
 # SagoWeather — Adaptive Weather Dashboard (React)
 
+LiveDemo - http://weather-app-react-zy8p.vercel.app
+
 Современное погодное приложение, сфокусированное на чистоте кода, масштабируемости и адаптивном UX. Проект выполнен в рамках перехода к квалификации Strong Junior+.
 
 ## 🚀 Стек технологий
@@ -7,7 +9,7 @@
 - **Core:** React 18 (Hooks)
 - **Build Tool:** Vite
 - **Styling:** CSS3 (Custom Properties, Grid Layout, BEM-naming)
-- **API:** OpenWeatherMap
+- **API:** OpenWeatherMap, OpenMeteo
 - **Formatting:** Intl.DateTimeFormat API (локализация дат)
 - **Icons:** SVG + Lucide-React
 
@@ -22,7 +24,7 @@
 
 ### 2. Масштабируемая интернационализация (i18n)
 
-Вместо жестко прописанного текста использована структура словарей. Поддерживается мгновенная смена языка (RU/EN) без перезагрузки страницы. Переводы изолированы в `translations.js`.
+Вместо жестко прописанного текста использована структура словарей. Поддерживается смена языка (RU/EN) и темная тема. Переводы изолированы в `translations.js`.
 
 ### 3. Адаптивная дизайн-система
 
@@ -51,4 +53,4 @@
 
 ---
 
-**Разработано в рамках подготовки к Strong Junior+ (Лето 2026)**
+**Разработано в рамках подготовки к Strong Junior+**
