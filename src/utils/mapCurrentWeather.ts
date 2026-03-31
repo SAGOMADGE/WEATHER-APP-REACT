@@ -1,5 +1,56 @@
-// --- Маппер погоды на день
-const mapCurrentWeather = (rawCurWeatherData) => {
+type RawWeatherResponse = {
+  name: string;
+  dt: number;
+  visibility: number;
+
+  main: {
+    temp: number;
+    feels_like: number;
+    temp_min: number;
+    temp_max: number;
+    humidity: number;
+    pressure: number;
+  };
+
+  weather: {
+    main: string;
+    description: string;
+  }[];
+
+  wind: {
+    speed: number;
+  };
+
+  sys: {
+    sunrise: number;
+    sunset: number;
+  };
+};
+
+type MappedWeather = {
+  city: string;
+
+  temp: number;
+  feelsLike: number;
+  tempMin: number;
+  tempMax: number;
+
+  humidity: number;
+  pressure: number;
+
+  condition: string;
+  description: string;
+
+  windSpeed: number;
+  visibility: number;
+
+  dewPoint: number;
+  isNight: boolean;
+};
+
+const mapCurrentWeather = (
+  rawCurWeatherData: RawWeatherResponse,
+): MappedWeather => {
   const temp = rawCurWeatherData.main.temp;
   const humidity = rawCurWeatherData.main.humidity;
 
