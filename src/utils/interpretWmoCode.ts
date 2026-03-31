@@ -1,7 +1,7 @@
 type Conditions = "Clouds" | "Mist" | "Rain" | "Snow" | "Storm" | "Clear";
 
 const interpretWmoCode = (code: unknown): Conditions => {
-  if (typeof code !== "number") return false;
+  if (typeof code !== "number") return "Clear";
 
   if (code === 0) return "Clear";
   if (code >= 1 && code <= 3) return "Clouds";

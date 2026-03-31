@@ -6,6 +6,8 @@ import mistIcon from "../icons/mistIcon.svg";
 import stormIcon from "../icons/stormIcon.svg";
 import moonIcon from "../icons/moonIcon.svg";
 
+type Conditions = "Clouds" | "Mist" | "Rain" | "Snow" | "Storm" | "Clear";
+
 export const iconMap = {
   Clouds: cloudsIcon,
   Clear: sunIcon,
@@ -18,7 +20,10 @@ export const iconMap = {
   nightClear: moonIcon,
 };
 
-export const getWeatherIcon = (condition, isNight) => {
+export const getWeatherIcon = (
+  condition: Conditions,
+  isNight: boolean,
+): string => {
   if (condition === "Clear" && isNight) {
     return iconMap.nightClear;
   } else {
