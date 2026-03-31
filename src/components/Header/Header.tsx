@@ -1,7 +1,7 @@
 import React from "react";
-import SearchBar from "./SearchBar/SearchBar.jsx";
-import Logo from "./Logo/Logo.jsx";
-import Theme from "./Theme/Theme.jsx";
+import SearchBar from "./SearchBar/SearchBar.js";
+import Logo from "./Logo/Logo.js";
+import Theme from "./Theme/Theme.js";
 import "./Header.css";
 
 const HeaderBar = ({ city, setCity, lang, setLang, t, isDark, setIsDark }) => {

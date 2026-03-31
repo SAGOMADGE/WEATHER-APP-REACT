@@ -2,14 +2,14 @@
 import { useState, useEffect } from "react";
 
 // Components import
-import Header from "./components/Header/Header.jsx";
-import StatusMessage from "./components/StatusMessage/StatusMessage.jsx";
-import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
+import Header from "./components/Header/Header.js";
+import StatusMessage from "./components/StatusMessage/StatusMessage.js";
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather.js";
 import { translations } from "./i18n/translations.js";
 // Api import
-import getWeatherWithForecast from "../src/api/api.js";
-import Stats from "./components/WeatherStats/Stats.jsx";
-import Forecast from "./components/Forecast/Forecast.jsx";
+import getWeatherWithForecast from "./api/api.js";
+import Stats from "./components/WeatherStats/Stats.js";
+import Forecast from "./components/Forecast/Forecast.js";
 // CSS import
 import "./styles/App.css";
 
