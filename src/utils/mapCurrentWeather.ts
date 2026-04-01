@@ -1,52 +1,6 @@
-type RawWeatherResponse = {
-  name: string;
-  dt: number;
-  visibility: number;
-
-  main: {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    humidity: number;
-    pressure: number;
-  };
-
-  weather: {
-    main: string;
-    description: string;
-  }[];
-
-  wind: {
-    speed: number;
-  };
-
-  sys: {
-    sunrise: number;
-    sunset: number;
-  };
-};
-
-type MappedWeather = {
-  city: string;
-
-  temp: number;
-  feelsLike: number;
-  tempMin: number;
-  tempMax: number;
-
-  humidity: number;
-  pressure: number;
-
-  condition: string;
-  description: string;
-
-  windSpeed: number;
-  visibility: number;
-
-  dewPoint: number;
-  isNight: boolean;
-};
+import type { Conditions } from "../types/weather.types";
+import type { RawWeatherResponse } from "../types/weather.types";
+import type { MappedWeather } from "../types/weather.types";
 
 const mapCurrentWeather = (
   rawCurWeatherData: RawWeatherResponse,
@@ -66,7 +20,7 @@ const mapCurrentWeather = (
     humidity,
     pressure: rawCurWeatherData.main.pressure,
 
-    condition: rawCurWeatherData.weather[0].main,
+    condition: rawCurWeatherData.weather[0].main as Conditions,
     description: rawCurWeatherData.weather[0].description,
 
     windSpeed: rawCurWeatherData.wind.speed,

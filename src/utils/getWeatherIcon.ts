@@ -17,15 +17,16 @@ export const iconMap = {
   Mist: mistIcon,
   Fog: mistIcon,
   Storm: stormIcon,
-  nightClear: moonIcon,
 } as const;
+
+const nightClearIcon = moonIcon;
 
 export const getWeatherIcon = (
   condition: Conditions,
   isNight?: boolean,
 ): string => {
   if (condition === "Clear" && isNight) {
-    return iconMap.nightClear;
+    return nightClearIcon;
   } else {
     return iconMap[condition] || cloudsIcon;
   }
