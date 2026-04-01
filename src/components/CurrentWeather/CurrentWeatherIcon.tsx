@@ -1,6 +1,15 @@
-import { getWeatherIcon } from "../../utils/getWeatherIcon.js";
+import { getWeatherIcon } from "../../utils/getWeatherIcon";
+import type { Conditions } from "../../types/weather.types";
 
-const CurrentWeatherIcon = ({ condition, isNight }) => {
+type CurrentWeatherIconProps = {
+  condition: Conditions;
+  isNight: boolean;
+};
+
+const CurrentWeatherIcon = ({
+  condition,
+  isNight,
+}: CurrentWeatherIconProps) => {
   const IconSrc = getWeatherIcon(condition, isNight);
 
   return (
