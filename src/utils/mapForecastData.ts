@@ -1,25 +1,8 @@
-type RawForecastResponse = {
-  daily: {
-    time: string[];
-    temperature_2m_max: number[];
-    temperature_2m_min: number[];
-    relative_humidity_2m_max: number[];
-    weathercode: number[];
-    uv_index_max: number[];
-  };
-};
-
-type Conditions = "Clouds" | "Mist" | "Rain" | "Snow" | "Storm" | "Clear";
-
-type ForecastDay = {
-  date: string;
-  dayTemp: number;
-  nightTemp: number;
-  humidity: number;
-  weatherCode: number;
-  uvIndex: number;
-  condition: Conditions;
-};
+import type {
+  Conditions,
+  RawForecastResponse,
+  ForecastDay,
+} from "../types/weather.types";
 
 const mapForecastData = (
   rawForecast: RawForecastResponse,

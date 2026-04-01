@@ -8,6 +8,7 @@ export type Conditions =
   | "Storm"
   | "Clear";
 
+// === CURRENT WEATHER === ///
 export type RawWeatherResponse = {
   name: string;
   dt: number;
@@ -57,3 +58,36 @@ export type MappedWeather = {
   dewPoint: number;
   isNight: boolean;
 };
+
+// === FORECAST WEATHER === //
+export type RawForecastResponse = {
+  daily: {
+    time: string[];
+    temperature_2m_max: number[];
+    temperature_2m_min: number[];
+    relative_humidity_2m_max: number[];
+    weathercode: number[];
+    uv_index_max: number[];
+  };
+};
+
+export type ForecastDay = {
+  date: string;
+  dayTemp: number;
+  nightTemp: number;
+  humidity: number;
+  weatherCode: number;
+  uvIndex: number;
+  condition: Conditions;
+};
+
+// === WEATHER RESULT === ///
+export type WeatherResult = {
+  uiCurWeatherData: MappedWeather;
+  uiForecastWeeklyData: ForecastDay[];
+};
+
+// === WEATHER ERROR === //
+export interface WeatherError extends Error {
+  code: string;
+}
