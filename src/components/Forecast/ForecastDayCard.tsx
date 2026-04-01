@@ -3,19 +3,6 @@ import { getWeatherIcon } from "../../utils/getWeatherIcon.js";
 import type { Conditions } from "../../types/weather.types.js";
 import type { Translations } from "../../i18n/translations.js";
 
-type ForecastDay = {
-  date: string;
-  dayTemp: number;
-  nightTemp: number;
-  condition: Conditions;
-};
-
-type ForecastProps = {
-  forecast: ForecastDay[];
-  t: Translations;
-  lang: string;
-};
-
 type ForecastDayCardProps = {
   label: string;
   dayTemp: number;
