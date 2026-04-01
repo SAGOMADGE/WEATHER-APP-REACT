@@ -14,6 +14,8 @@ export const translations = {
         Clear: "Ясно",
         Mist: "Туман",
         Storm: "Гроза",
+        Fog: "Туман",
+        Drizzle: "Морось",
       },
     },
 
@@ -63,6 +65,8 @@ export const translations = {
         Clear: "Clear",
         Mist: "Mist",
         Storm: "Storm",
+        Fog: "Fog",
+        Drizzle: "Drizzle",
       },
     },
 
@@ -95,4 +99,7 @@ export const translations = {
       generic: "Something went wrong..We are working on that !",
     },
   },
-};
+} as const;
+
+// === TRANSLATIONS === //
+export type Translations = typeof translations.ru;
