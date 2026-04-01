@@ -1,8 +1,14 @@
+import { SetStateAction } from "react";
 import "./Theme.css";
 
-const Theme = ({ isDark, setIsDark }) => {
+type ThemeProps = {
+  isDark: boolean;
+  setIsDark: React.Dispatch<SetStateAction<boolean>>;
+};
+
+const Theme = ({ isDark, setIsDark }: ThemeProps) => {
   return (
-    <button className="theme-btn" onClick={() => setIsDark(!isDark)}>
+    <button className="theme-btn" onClick={() => setIsDark((prev) => !prev)}>
       {isDark ? (
         // Иконка Солнца
         <svg
