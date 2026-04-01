@@ -102,4 +102,4 @@ export const translations = {
 } as const;
 
 // === TRANSLATIONS === //
-export type Translations = typeof translations.ru;
+export type Translations = (typeof translations)[keyof typeof translations];

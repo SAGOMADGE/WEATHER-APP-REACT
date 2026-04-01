@@ -1,6 +1,36 @@
 import { getWeatherIcon } from "../../utils/getWeatherIcon.js";
 
-const ForecastDayCard = ({ label, dayTemp, nightTemp, condition, t }) => {
+import type { Conditions } from "../../types/weather.types.js";
+import type { Translations } from "../../i18n/translations.js";
+
+type ForecastDay = {
+  date: string;
+  dayTemp: number;
+  nightTemp: number;
+  condition: Conditions;
+};
+
+type ForecastProps = {
+  forecast: ForecastDay[];
+  t: Translations;
+  lang: string;
+};
+
+type ForecastDayCardProps = {
+  label: string;
+  dayTemp: number;
+  nightTemp: number;
+  condition: Conditions;
+  t: Translations;
+};
+
+const ForecastDayCard = ({
+  label,
+  dayTemp,
+  nightTemp,
+  condition,
+  t,
+}: ForecastDayCardProps) => {
   const iconSrc = getWeatherIcon(condition);
 
   return (
@@ -14,7 +44,7 @@ const ForecastDayCard = ({ label, dayTemp, nightTemp, condition, t }) => {
           className="weather-forecast__icon"
         ></img>
         <span className="condition-text">
-          {t?.current?.conditions?.[condition] || condition}
+          {t.current.conditions[condition] || condition}
         </span>
       </div>
 

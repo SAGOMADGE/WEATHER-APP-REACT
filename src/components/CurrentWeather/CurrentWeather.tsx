@@ -1,5 +1,4 @@
-import React from "react";
-import CurrentWeatherIcon from "./CurrentWeatherIcon.jsx";
+import CurrentWeatherIcon from "./CurrentWeatherIcon";
 import Temperature from "./Temperature.jsx";
 import ConditionInfo from "./ConditionInfo.jsx";
 import "./CurrentWeather.css";

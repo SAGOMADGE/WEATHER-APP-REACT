@@ -10,11 +10,15 @@ const CurrentWeatherIcon = ({
   condition,
   isNight,
 }: CurrentWeatherIconProps) => {
-  const IconSrc = getWeatherIcon(condition, isNight);
+  const iconSrc = getWeatherIcon(condition, isNight);
 
   return (
     <div className="weather-icon-wrapper">
-      <img src={IconSrc} alt={condition} className="weather-icon" />
+      <img
+        src={iconSrc}
+        alt={`Weather: ${condition}`}
+        className="weather-icon"
+      />
     </div>
   );
 };

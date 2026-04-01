@@ -1,5 +1,17 @@
 import "./Stats.css";
 
+import type { Translations } from "../../i18n/translations";
+
+type StatsProps = {
+  wind: number;
+  pressure: number;
+  humidity: number;
+  visibility: number;
+  dewPoint: number;
+  uvIndex: number;
+  t: Translations;
+};
+
 const Stats = ({
   wind,
   pressure,
@@ -8,13 +20,15 @@ const Stats = ({
   dewPoint,
   uvIndex,
   t,
-}) => {
+}: StatsProps) => {
+  const visibilityKm = visibility / 1000;
+
   return (
     <div className="weather-stats">
       <div className="card">
         <p>{t.stats.wind}</p>
         <p>
-          {wind}{" "}
+          {wind.toFixed(1)}{" "}
           <span>
             {t.stats.km}/{t.stats.h}
           </span>
@@ -36,7 +50,7 @@ const Stats = ({
       <div className="card">
         <p>{t.stats.visibility}</p>
         <p>
-          {visibility / 1000} <span>{t.stats.km}</span>
+          {visibilityKm.toFixed(1)} <span>{t.stats.km}</span>
         </p>
       </div>
 
