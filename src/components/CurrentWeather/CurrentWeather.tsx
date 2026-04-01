@@ -3,15 +3,26 @@ import CurrentWeatherIcon from "./CurrentWeatherIcon.jsx";
 import Temperature from "./Temperature.jsx";
 import ConditionInfo from "./ConditionInfo.jsx";
 import "./CurrentWeather.css";
+import type { Conditions } from "../../types/weather.types";
+import type { Translations } from "../../i18n/translations";
+
+type CurrentWeatherProps = {
+  city: string;
+  temp: number;
+  feelsLike: number;
+  condition: Conditions;
+  isNight: boolean;
+  t: Translations;
+};
+
 const CurrentWeather = ({
   city,
   temp,
   feelsLike,
   condition,
-  icon,
   isNight,
   t,
-}) => {
+}: CurrentWeatherProps) => {
   return (
     <div className="current-weather">
       <div className="current-weather__location">
@@ -19,11 +30,7 @@ const CurrentWeather = ({
       </div>
 
       <div className="current-weather__main">
-        <CurrentWeatherIcon
-          icon={icon}
-          condition={condition}
-          isNight={isNight}
-        />
+        <CurrentWeatherIcon condition={condition} isNight={isNight} />
         <Temperature temp={temp} />
       </div>
 
