@@ -1,6 +1,14 @@
 import { Thermometer } from "lucide-react";
+import type { Conditions } from "../../types/weather.types";
+import type { Translations } from "../../i18n/translations";
 
-const ConditionInfo = ({ condition, feelsLike, t }) => {
+type ConditionInfoProps = {
+  condition: Conditions;
+  feelsLike: number;
+  t: Translations;
+};
+
+const ConditionInfo = ({ condition, feelsLike, t }: ConditionInfoProps) => {
   return (
     <div className="current-weather__details">
       <div className="current-weather__description">

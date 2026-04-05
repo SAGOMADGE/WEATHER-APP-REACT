@@ -1,5 +1,10 @@
-// --- Маппер погоды на день
-const mapCurrentWeather = (rawCurWeatherData) => {
+import type { Conditions } from "../types/weather.types";
+import type { RawWeatherResponse } from "../types/weather.types";
+import type { MappedWeather } from "../types/weather.types";
+
+const mapCurrentWeather = (
+  rawCurWeatherData: RawWeatherResponse,
+): MappedWeather => {
   const temp = rawCurWeatherData.main.temp;
   const humidity = rawCurWeatherData.main.humidity;
 
@@ -15,7 +20,7 @@ const mapCurrentWeather = (rawCurWeatherData) => {
     humidity,
     pressure: rawCurWeatherData.main.pressure,
 
-    condition: rawCurWeatherData.weather[0].main,
+    condition: rawCurWeatherData.weather[0].main as Conditions,
     description: rawCurWeatherData.weather[0].description,
 
     windSpeed: rawCurWeatherData.wind.speed,

@@ -1,4 +1,6 @@
-const interpretWmoCode = (code) => {
+import type { Conditions } from "../types/weather.types";
+
+const interpretWmoCode = (code: number): Conditions => {
   if (code === 0) return "Clear";
   if (code >= 1 && code <= 3) return "Clouds";
   if (code >= 45 && code <= 48) return "Mist";

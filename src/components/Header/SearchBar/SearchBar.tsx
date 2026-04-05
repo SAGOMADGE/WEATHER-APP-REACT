@@ -1,9 +1,17 @@
-import { useState, useEffect, React } from "react";
+import { useState, useEffect } from "react";
 import "./SearchBar.css";
 import SearchIcon from "./SearchIcon.jsx";
 import validateCity from "../../../utils/validateCity.js";
 
-const SearchBar = ({ city, setCity, t }) => {
+import type { Translations } from "../../../i18n/translations";
+
+type SearchBarProps = {
+  city: string;
+  setCity: React.Dispatch<React.SetStateAction<string>>;
+  t: Translations;
+};
+
+const SearchBar = ({ city, setCity, t }: SearchBarProps) => {
   const [inputValue, setInputValueLocal] = useState(city ?? "");
   const [touched, setTouched] = useState(false);
 
@@ -21,6 +29,10 @@ const SearchBar = ({ city, setCity, t }) => {
 
   const showError = !isValid && touched && inputValue.length > 0;
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValueLocal(e.currentTarget.value);
+  };
+
   return (
     <div className="search-container">
       <div className="input-wrapper">
@@ -29,7 +41,7 @@ const SearchBar = ({ city, setCity, t }) => {
           type="text"
           value={inputValue}
           placeholder={t.header.searchPlaceholder}
-          onChange={(e) => setInputValueLocal(e.target.value)}
+          onChange={handleChange}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               handleSubmit();

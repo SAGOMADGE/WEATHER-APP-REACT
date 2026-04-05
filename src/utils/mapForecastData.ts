@@ -1,4 +1,13 @@
-const mapForecastData = (rawForecast, interpretWmoCode) => {
+import type {
+  Conditions,
+  RawForecastResponse,
+  ForecastDay,
+} from "../types/weather.types";
+
+const mapForecastData = (
+  rawForecast: RawForecastResponse,
+  interpretWmoCode: (code: number) => Conditions,
+): ForecastDay[] => {
   const {
     time,
     temperature_2m_max,

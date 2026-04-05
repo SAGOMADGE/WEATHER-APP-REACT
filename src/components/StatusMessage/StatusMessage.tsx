@@ -1,6 +1,22 @@
 import "./StatusMessage.css";
 
-const StatusMessage = ({ type, message, icon, t, onRetry }) => {
+import { Translations } from "../../i18n/translations";
+
+type StatusMessageProps = {
+  type: "loading" | "error";
+  message: string;
+  icon?: string;
+  t: Translations;
+  onRetry: () => void;
+};
+
+const StatusMessage = ({
+  type,
+  message,
+  icon,
+  t,
+  onRetry,
+}: StatusMessageProps) => {
   return (
     <div className={`status-container status-${type}`}>
       <div className="status-icon" role="img" aria-label={type}>
@@ -9,7 +25,7 @@ const StatusMessage = ({ type, message, icon, t, onRetry }) => {
 
       {type === "error" && (
         <div className="status-title">
-          <h3 className="status-title">{t.ui.error || "Ошибка"} </h3>
+          <h3 className="status-title">{t.ui.error} </h3>
         </div>
       )}
 
