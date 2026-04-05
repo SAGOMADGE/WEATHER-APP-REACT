@@ -1,10 +1,30 @@
-import React from "react";
+import React, { SetStateAction } from "react";
 import SearchBar from "./SearchBar/SearchBar.js";
 import Logo from "./Logo/Logo.js";
 import Theme from "./Theme/Theme.js";
 import "./Header.css";
 
-const HeaderBar = ({ city, setCity, lang, setLang, t, isDark, setIsDark }) => {
+import type { Translations } from "../../i18n/translations.js";
+
+type HeaderProps = {
+  city: string;
+  setCity: React.Dispatch<SetStateAction<string>>;
+  lang: "ru" | "en";
+  setLang: React.Dispatch<SetStateAction<string>>;
+  t: Translations;
+  isDark: boolean;
+  setIsDark: React.Dispatch<SetStateAction<boolean>>;
+};
+
+const HeaderBar = ({
+  city,
+  setCity,
+  lang,
+  setLang,
+  t,
+  isDark,
+  setIsDark,
+}: HeaderProps) => {
   return (
     <header className="header-bar">
       <div className="header-left">

@@ -41,6 +41,7 @@ export const translations = {
     ui: {
       loading: "Загрузка...",
       retry: "Повторить",
+      error: "Ошибка",
     },
 
     errors: {
@@ -91,6 +92,7 @@ export const translations = {
     ui: {
       loading: "Loading...",
       retry: "Retry",
+      error: "Error",
     },
 
     errors: {
