@@ -13,13 +13,19 @@ import Forecast from "./components/Forecast/Forecast.js";
 // CSS import
 import "./styles/App.css";
 
+import type {
+  MappedWeather,
+  ForecastDay,
+  WeatherError,
+} from "./types/weather.types.js";
+
 const App = () => {
   const [city, setCity] = useState("Очамчира");
-  const [weather, setWeather] = useState(null);
-  const [forecast, setForecast] = useState([]);
+  const [weather, setWeather] = useState<MappedWeather | null>(null);
+  const [forecast, setForecast] = useState<ForecastDay[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [lang, setLang] = useState("ru");
+  const [error, setError] = useState<string | null>(null);
+  const [lang, setLang] = useState<"ru" | "en">("ru");
   const [isDark, setIsDark] = useState(true);
 
   const t = translations[lang];
@@ -39,7 +45,8 @@ const App = () => {
       if (import.meta.env.DEV) {
         console.error(err);
       }
-      if (err.code === "CITY_NOT_FOUND") {
+      const weatherErr = err as WeatherError;
+      if (weatherErr.code == "CITY_NOT_FOUND") {
         setError(t.errors.notFound);
       } else {
         setError(t.errors.network);
@@ -91,11 +98,9 @@ const App = () => {
         <>
           <CurrentWeather
             city={weather.city}
-            country={weather.country}
             temp={weather.temp}
             feelsLike={weather.feelsLike}
             condition={weather.condition}
-            icon={weather.condition}
             isNight={weather.isNight}
             t={t}
           />
