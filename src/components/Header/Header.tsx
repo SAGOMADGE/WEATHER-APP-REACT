@@ -10,7 +10,7 @@ type HeaderProps = {
   city: string;
   setCity: React.Dispatch<SetStateAction<string>>;
   lang: "ru" | "en";
-  setLang: React.Dispatch<SetStateAction<string>>;
+  setLang: React.Dispatch<SetStateAction<"ru" | "en">>;
   t: Translations;
   isDark: boolean;
   setIsDark: React.Dispatch<SetStateAction<boolean>>;

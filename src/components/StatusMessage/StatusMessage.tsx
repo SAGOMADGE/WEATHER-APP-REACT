@@ -7,7 +7,7 @@ type StatusMessageProps = {
   message: string;
   icon?: string;
   t: Translations;
-  onRetry: () => void;
+  onRetry?: () => void;
 };
 
 const StatusMessage = ({

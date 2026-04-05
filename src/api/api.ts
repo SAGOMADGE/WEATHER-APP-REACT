@@ -12,7 +12,7 @@ const URL_CUR_WEATHER = "https://api.openweathermap.org/data/2.5/weather";
 //////////////////////////////////
 export default async function getWeatherWithForecast(
   city: string,
-  lang: string,
+  lang: "ru" | "en",
 ): Promise<WeatherResult> {
   const resCurWeather = await fetch(
     `${URL_CUR_WEATHER}?q=${city}&appid=${API_KEY}&units=metric&lang=${lang}`,
