@@ -11,7 +11,7 @@ type ThemeProps = {
 
 const Theme = ({ isDark, setIsDark }: ThemeProps) => {
   return (
-    <button className="theme-btn" onClick={() => setIsDark((prev) => !prev)}>
+    <button className="theme-btn" onClick={() => setIsDark(!isDark)}>
       {isDark ? <SunIcon /> : <MoonIcon />}
     </button>
   );

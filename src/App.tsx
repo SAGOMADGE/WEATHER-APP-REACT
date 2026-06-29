@@ -10,6 +10,7 @@ import { translations } from "./i18n/translations.js";
 import getWeatherWithForecast from "./api/api.js";
 import Stats from "./components/WeatherStats/Stats.js";
 import Forecast from "./components/Forecast/Forecast.js";
+import { useLocalStorage } from "./hooks/useLocalStorage.js";
 // CSS import
 import "./styles/App.css";
 
@@ -20,13 +21,13 @@ import type {
 } from "./types/weather.types.js";
 
 const App = () => {
-  const [city, setCity] = useState("Очамчира");
+  const [city, setCity] = useLocalStorage<string>("city", "Москва");
   const [weather, setWeather] = useState<MappedWeather | null>(null);
   const [forecast, setForecast] = useState<ForecastDay[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [lang, setLang] = useState<"ru" | "en">("ru");
-  const [isDark, setIsDark] = useState(true);
+  const [lang, setLang] = useLocalStorage<string>("lang", "ru");
+  const [isDark, setIsDark] = useLocalStorage<boolean>("theme", false);
 
   const t = translations[lang];
 
