@@ -54,7 +54,7 @@ Open-Meteo возвращает числовые коды погоды по ст
 
 |                       |                      |
 | --------------------- | -------------------- |
-| React 18 + TypeScript | UI и типизация       |
+| React 19 + TypeScript | UI и типизация       |
 | Vite                  | Сборка               |
 | OpenWeatherMap API    | Текущая погода       |
 | Open-Meteo API        | Прогноз на 7 дней    |
