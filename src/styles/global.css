@@ -200,7 +200,7 @@ body,
 
 @media (min-width: 768px) {
   :root {
-    --space-app: var(--space-2xl); /* Увеличиваем общий отступ приложения */
+    --space-app: var(--space-2xl);
     --space-grid: var(--space-lg);
     --space-md: 20px;
 

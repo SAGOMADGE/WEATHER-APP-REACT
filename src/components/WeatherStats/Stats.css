@@ -9,7 +9,6 @@
 .card {
   background: var(--card-bg);
   backdrop-filter: blur(10px);
-  /* -webkit-backdrop-filter: blur(10px); для Safari */
 
   border: 1px solid var(--color-border-dark-theme-thin);
   border-radius: var(--radius-md);

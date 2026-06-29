@@ -10,7 +10,6 @@ const Theme = ({ isDark, setIsDark }: ThemeProps) => {
   return (
     <button className="theme-btn" onClick={() => setIsDark((prev) => !prev)}>
       {isDark ? (
-        // Иконка Солнца
         <svg
           className="sun-icon"
           width="20"
@@ -24,7 +23,6 @@ const Theme = ({ isDark, setIsDark }: ThemeProps) => {
           <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
         </svg>
       ) : (
-        // Иконка Луны
         <svg
           className="moon-icon"
           viewBox="0 0 24 24"
