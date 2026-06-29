@@ -48,6 +48,7 @@ export const translations = {
       notFound: "Город не найден. Проверьте правильность названия.",
       network: "Проблемы с соединением. Проверьте подключение к интернету.",
       generic: "Что-то пошло не так. Мы уже чиним!",
+      invalidCity: "Город не должен содержать цифры",
     },
   },
 
@@ -99,6 +100,7 @@ export const translations = {
       notFound: "City not found. Please check the spelling.",
       network: "Connetction problems. Check your internter connection.",
       generic: "Something went wrong..We are working on that !",
+      invalidCity: "City name must not contain numbers",
     },
   },
 } as const;

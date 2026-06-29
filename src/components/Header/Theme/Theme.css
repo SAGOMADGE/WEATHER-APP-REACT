@@ -35,7 +35,7 @@
 
 .is-dark .sun-icon {
   color: #ffce45;
-  filter: drop-shadow(0 0 5px rgba(255, 206 69, 0.6));
+  filter: drop-shadow(0 0 5px rgba(255, 206, 69, 0.6));
 }
 
 .is-light .moon-icon {

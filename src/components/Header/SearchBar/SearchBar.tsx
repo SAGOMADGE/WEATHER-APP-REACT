@@ -12,12 +12,8 @@ type SearchBarProps = {
 };
 
 const SearchBar = ({ city, setCity, t }: SearchBarProps) => {
-  const [inputValue, setInputValueLocal] = useState(city ?? "");
+  const [inputValue, setInputValue] = useState(city ?? "");
   const [touched, setTouched] = useState(false);
-
-  useEffect(() => {
-    setInputValueLocal(city ?? "");
-  }, [city]);
 
   const handleSubmit = () => {
     setTouched(true);
@@ -30,7 +26,7 @@ const SearchBar = ({ city, setCity, t }: SearchBarProps) => {
   const showError = !isValid && touched && inputValue.length > 0;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValueLocal(e.currentTarget.value);
+    setInputValue(e.currentTarget.value);
   };
 
   return (
@@ -57,7 +53,7 @@ const SearchBar = ({ city, setCity, t }: SearchBarProps) => {
       </div>
 
       {inputValue && !isValid && touched && (
-        <p className="error-message">Город не должен содержать цифры</p>
+        <p className="error-message">{t.errors.invalidCity}</p>
       )}
     </div>
   );

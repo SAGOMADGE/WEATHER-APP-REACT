@@ -19,7 +19,7 @@
 .current-weather__city {
   font-size: var(--fs-xxl);
   font-family: var(--ff-accent), "sans-serif";
-  font-weight: var(--fw-base);
+  font-weight: var(--fw-medium);
   margin: 0;
 }
 

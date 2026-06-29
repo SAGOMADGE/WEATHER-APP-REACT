@@ -32,7 +32,7 @@ const HeaderBar = ({
       </div>
 
       <div className="header-center">
-        <SearchBar city={city} setCity={setCity} t={t} />
+        <SearchBar key={city} city={city} setCity={setCity} t={t} />
       </div>
 
       <div className="header-right">

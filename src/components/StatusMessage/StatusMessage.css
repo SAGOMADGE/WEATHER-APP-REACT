@@ -64,7 +64,7 @@
   font-size: var(--fs-md);
   font-weight: var(--fw-boldish);
 
-  transition-timing-function:
+  transition:
     background-color 200ms ease,
     transform 100ms ease-in;
 }

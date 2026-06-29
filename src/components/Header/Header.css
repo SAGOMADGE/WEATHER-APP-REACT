@@ -93,7 +93,6 @@
 @media (max-width: 350px) {
   .header-right {
     display: flex;
-    margin-left: var(--space-sm);
     gap: var(--space-xxxs);
     padding: var(--space-xxs);
     margin: 0 5px 0 0;
