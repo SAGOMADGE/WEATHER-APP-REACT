@@ -1,6 +1,10 @@
 import interpretWmoCode from "../utils/interpretWmoCode";
 import mapForecastData from "../utils/mapForecastData";
 import mapCurrentWeather from "../utils/mapCurrentWeather";
+// guards
+import { isRawCurrentWeather } from "../utils/guards/currentWeather.guard";
+import { isRawForecast } from "../utils/guards/forecast.guard";
+// types
 import type { WeatherResult } from "../types/weather.types";
 import type { WeatherError } from "../types/weather.types";
 
@@ -25,12 +29,15 @@ export default async function getWeatherWithForecast(
     throw error;
   }
 
-  const rawCurWeatherData = await resCurWeather.json();
+  const rawCurWeatherData: unknown = await resCurWeather.json();
+
+  if (!isRawCurrentWeather(rawCurWeatherData)) {
+    throw new Error("Invalid OpenWeather API response");
+  }
 
   const mappedCurWeatherData = mapCurrentWeather(rawCurWeatherData);
 
-  const lat = Number(rawCurWeatherData.coord.lat);
-  const lon = Number(rawCurWeatherData.coord.lon); // {lat, lon}
+  const { lat, lon } = rawCurWeatherData.coord;
 
   const forecastUrl =
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
@@ -39,10 +46,14 @@ export default async function getWeatherWithForecast(
 
   const resForecastWeekly = await fetch(forecastUrl);
 
-  const rawForecastWeeklyData = await resForecastWeekly.json();
-
   if (!resForecastWeekly.ok) {
-    throw new Error("ошибка запроса прогноза погоды");
+    throw new Error("ошибка статуса OPEN METEO");
+  }
+
+  const rawForecastWeeklyData: unknown = await resForecastWeekly.json();
+
+  if (!isRawForecast(rawForecastWeeklyData)) {
+    throw new Error("Invalid OPEN METEO API Response");
   }
 
   const uiForecastWeeklyData = mapForecastData(

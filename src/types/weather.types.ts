@@ -14,6 +14,11 @@ export type RawWeatherResponse = {
   dt: number;
   visibility: number;
 
+  coord: {
+    lat: number;
+    lon: number;
+  };
+
   main: {
     temp: number;
     feels_like: number;
