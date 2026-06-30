@@ -81,7 +81,7 @@ const App = () => {
         t={t}
       />
 
-      {isLoading && (
+      {isLoading && !weather && (
         <StatusMessage type="loading" message={t.ui.loading} icon="⏳" t={t} />
       )}
 
@@ -95,7 +95,7 @@ const App = () => {
         />
       )}
 
-      {!isLoading && !error && weather && (
+      {!error && weather && (
         <>
           <CurrentWeather
             city={weather.city}
