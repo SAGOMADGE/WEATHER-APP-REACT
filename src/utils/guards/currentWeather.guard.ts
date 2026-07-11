@@ -17,11 +17,7 @@ export function isRawCurrentWeather(data: unknown): data is RawWeatherResponse {
     return false;
   }
 
-  const main = data.main;
-  const weather = data.weather;
-  const wind = data.wind;
-  const sys = data.sys;
-  const coord = data.coord;
+  const { main, weather, wind, sys, coord } = data;
 
   if (
     !isObject(main) ||
