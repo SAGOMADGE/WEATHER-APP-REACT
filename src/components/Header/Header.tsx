@@ -1,29 +1,31 @@
-import React, { SetStateAction } from "react";
 import SearchBar from "./SearchBar/SearchBar.js";
 import Logo from "./Logo/Logo.js";
 import Theme from "./Theme/Theme.js";
 import "./Header.css";
 
-import type { Translations } from "../../i18n/translations.js";
+import type { Language, Translations } from "../../i18n/translations.js";
 
 type HeaderProps = {
   city: string;
-  setCity: React.Dispatch<SetStateAction<string>>;
-  lang: "ru" | "en";
-  setLang: React.Dispatch<SetStateAction<"ru" | "en">>;
-  t: Translations;
+  setCity: (city: string) => void;
+
   isDark: boolean;
-  setIsDark: React.Dispatch<SetStateAction<boolean>>;
+  setIsDark: (isDark: boolean) => void;
+
+  lang: Language;
+  setLang: (lang: Language) => void;
+
+  t: Translations;
 };
 
 const HeaderBar = ({
   city,
   setCity,
+  isDark,
+  setIsDark,
   lang,
   setLang,
   t,
-  isDark,
-  setIsDark,
 }: HeaderProps) => {
   return (
     <header className="header-bar">
@@ -37,6 +39,7 @@ const HeaderBar = ({
 
       <div className="header-right">
         <button
+          type="button"
           className="lang-btn"
           onClick={() => setLang(lang === "ru" ? "en" : "ru")}
         >

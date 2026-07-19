@@ -17,9 +17,11 @@ const URL_CUR_WEATHER = "https://api.openweathermap.org/data/2.5/weather";
 export default async function getWeatherWithForecast(
   city: string,
   lang: "ru" | "en",
+  signal: AbortSignal,
 ): Promise<WeatherResult> {
   const resCurWeather = await fetch(
     `${URL_CUR_WEATHER}?q=${city}&appid=${API_KEY}&units=metric&lang=${lang}`,
+    { signal },
   );
 
   if (!resCurWeather.ok) {
@@ -44,7 +46,7 @@ export default async function getWeatherWithForecast(
     `&daily=temperature_2m_max,temperature_2m_min,relative_humidity_2m_max,weathercode,uv_index_max` +
     `&forecast_days=7&timezone=auto`;
 
-  const resForecastWeekly = await fetch(forecastUrl);
+  const resForecastWeekly = await fetch(forecastUrl, { signal });
 
   if (!resForecastWeekly.ok) {
     throw new Error("ошибка статуса OPEN METEO");

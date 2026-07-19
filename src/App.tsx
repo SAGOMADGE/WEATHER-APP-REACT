@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header/Header.js";
 import StatusMessage from "./components/StatusMessage/StatusMessage.js";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather.js";
-import { translations } from "./i18n/translations.js";
+import { Language, translations } from "./i18n/translations.js";
 // Api import
 import getWeatherWithForecast from "./api/api.js";
 import Stats from "./components/WeatherStats/Stats.js";
@@ -22,44 +22,61 @@ import type {
 
 const App = () => {
   const [city, setCity] = useLocalStorage<string>("city", "Москва");
+  const [isDark, setIsDark] = useLocalStorage<boolean>("theme", false);
+  const [lang, setLang] = useLocalStorage<Language>("lang", "ru");
+
   const [weather, setWeather] = useState<MappedWeather | null>(null);
   const [forecast, setForecast] = useState<ForecastDay[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [lang, setLang] = useLocalStorage<string>("lang", "ru");
-  const [isDark, setIsDark] = useLocalStorage<boolean>("theme", false);
+  const [retry, setRetry] = useState(0);
 
   const t = translations[lang];
 
-  const loadWeather = async () => {
-    if (!city) return;
-
-    setIsLoading(true);
-    setError(null);
-    try {
-      const { uiCurWeatherData, uiForecastWeeklyData } =
-        await getWeatherWithForecast(city, lang);
-
-      setWeather(uiCurWeatherData);
-      setForecast(uiForecastWeeklyData);
-    } catch (err) {
-      if (import.meta.env.DEV) {
-        console.error(err);
-      }
-      const weatherErr = err as WeatherError;
-      if (weatherErr.code == "CITY_NOT_FOUND") {
-        setError(t.errors.notFound);
-      } else {
-        setError(t.errors.network);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const controller = new AbortController();
+
+    const loadWeather = async () => {
+      if (!city) return;
+
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const { uiCurWeatherData, uiForecastWeeklyData } =
+          await getWeatherWithForecast(city, lang, controller.signal);
+
+        if (controller.signal.aborted) return;
+
+        setWeather(uiCurWeatherData);
+        setForecast(uiForecastWeeklyData);
+      } catch (err) {
+        if (controller.signal.aborted) return;
+
+        if (import.meta.env.DEV) {
+          console.error(err);
+        }
+
+        const weatherErr = err as WeatherError;
+
+        if (weatherErr.code === "CITY_NOT_FOUND") {
+          setError(t.errors.notFound);
+        } else {
+          setError(t.errors.network);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setIsLoading(false);
+        }
+      }
+    };
+
     loadWeather();
-  }, [city, lang]);
+
+    return () => {
+      controller.abort();
+    };
+  }, [city, lang, t]);
 
   useEffect(() => {
     if (isDark) {
@@ -91,7 +108,9 @@ const App = () => {
           message={error}
           icon="⚠️"
           t={t}
-          onRetry={loadWeather}
+          onRetry={() => {
+            setRetry((prev) => prev + 1);
+          }}
         />
       )}
 

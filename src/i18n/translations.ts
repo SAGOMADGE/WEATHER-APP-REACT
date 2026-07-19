@@ -106,4 +106,6 @@ export const translations = {
 } as const;
 
 // === TRANSLATIONS === //
-export type Translations = (typeof translations)[keyof typeof translations];
+export type Language = keyof typeof translations;
+
+export type Translations = (typeof translations)[Language];
